@@ -2720,11 +2720,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\matia\\Desktop\\Visual\\LubricentroVelezV2\\LubricentroVelezV2.csproj",
+      "projectUniqueName": "C:\\Users\\matia\\Desktop\\Visual\\LubricentroVelez\\LubricentroVelezV2\\LubricentroVelezV2.csproj",
       "projectName": "LubricentroVelezV2",
-      "projectPath": "C:\\Users\\matia\\Desktop\\Visual\\LubricentroVelezV2\\LubricentroVelezV2.csproj",
+      "projectPath": "C:\\Users\\matia\\Desktop\\Visual\\LubricentroVelez\\LubricentroVelezV2\\LubricentroVelezV2.csproj",
       "packagesPath": "C:\\Users\\matia\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\matia\\Desktop\\Visual\\LubricentroVelezV2\\obj\\",
+      "outputPath": "C:\\Users\\matia\\Desktop\\Visual\\LubricentroVelez\\LubricentroVelezV2\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

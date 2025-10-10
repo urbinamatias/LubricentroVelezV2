@@ -52,20 +52,38 @@ namespace LubricentroVelezV2
         private void dgvOrdenes_ColumnHeaderMouseClick(object? sender, DataGridViewCellMouseEventArgs e)
         {
             string columnName = dgvOrdenes.Columns[e.ColumnIndex].DataPropertyName;
-            var data = (List<OrdenesTrabajoDTO>)_bindingSource.DataSource;
 
             if (_lastSortedColumn == columnName)
-                _sortAscending = !_sortAscending;
+            {
+                _lastOrderDirection = _lastOrderDirection == ListSortDirection.Ascending
+                    ? ListSortDirection.Descending
+                    : ListSortDirection.Ascending;
+            }
             else
-                _sortAscending = true;
+            {
+                _lastSortedColumn = columnName;
+                _lastOrderDirection = ListSortDirection.Ascending;
+            }
 
-            _lastSortedColumn = columnName;
-
-            if (_sortAscending)
-                dgvOrdenes.DataSource = data.OrderBy(x => x.GetType().GetProperty(columnName)?.GetValue(x)).ToList();
-            else
-                dgvOrdenes.DataSource = data.OrderByDescending(x => x.GetType().GetProperty(columnName)?.GetValue(x)).ToList();
+            AplicarOrden();
         }
+        private void AplicarOrden()
+        {
+            if (string.IsNullOrEmpty(_lastSortedColumn))
+                return;
+
+            var listaActual = ((List<OrdenesTrabajoDTO>)_bindingSource.DataSource);
+
+            if (_lastOrderDirection == ListSortDirection.Ascending)
+                _bindingSource.DataSource = listaActual
+                    .OrderBy(o => o.GetType().GetProperty(_lastSortedColumn)?.GetValue(o))
+                    .ToList();
+            else
+                _bindingSource.DataSource = listaActual
+                    .OrderByDescending(o => o.GetType().GetProperty(_lastSortedColumn)?.GetValue(o))
+                    .ToList();
+        }
+
         private void SetPlaceHolder()
         {
             if (string.IsNullOrWhiteSpace(txtBuscar.Text))
@@ -89,8 +107,10 @@ namespace LubricentroVelezV2
                 txtBuscar.ForeColor = Color.Gray;
                 txtBuscar.Text = placeholder;
 
-                // restaurar vista original
                 _bindingSource.DataSource = _ordenes;
+
+                if(!string.IsNullOrEmpty(_lastSortedColumn))
+                    AplicarOrden();
             }
         }
         private void txtBuscar_KeyPress(object? sender, KeyPressEventArgs e)
@@ -100,33 +120,26 @@ namespace LubricentroVelezV2
         }
         private void txtBuscar_TextChanged(object? sender, EventArgs e)
         {
-            if (txtBuscar.Text == placeholder || txtBuscar.ForeColor == Color.Gray)
+            if (txtBuscar.ForeColor == Color.Gray || string.IsNullOrWhiteSpace(txtBuscar.Text) || txtBuscar.Text == placeholder)
             {
-                _bindingSource.DataSource = _ordenes;
-                return;
-            }
-            if (txtBuscar.ForeColor == Color.Gray && txtBuscar.Text == placeholder)
-            {
-                _bindingSource.DataSource = _ordenes;
+                if (_bindingSource.DataSource != _ordenes)
+                    _bindingSource.DataSource = _ordenes;
+                if (!string.IsNullOrEmpty(_lastSortedColumn))
+                    AplicarOrden();
+
                 return;
             }
 
             string texto = txtBuscar.Text.Trim().ToUpper();
 
-            if (string.IsNullOrEmpty(texto))
-            {
-                // restaura la lista original y su orden
-                _bindingSource.DataSource = _ordenes;
-                return;
-            }
-
-            // filtrado seguro: chequea que Patente no sea null
             var filtradas = _ordenes
                 .Where(o => !string.IsNullOrEmpty(o.Patente) && o.Patente.ToUpper().Contains(texto))
-                .OrderByDescending(o => o.IdOt) // opcional: mantener orden descendente por IdOt
+                .OrderByDescending(o => o.IdOt)
                 .ToList();
 
             _bindingSource.DataSource = filtradas;
+            if (!string.IsNullOrEmpty(_lastSortedColumn))
+                AplicarOrden();
         }
     }
 }

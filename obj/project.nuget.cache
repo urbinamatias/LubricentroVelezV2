@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Oo5lyT9RX9U=",
+  "dgSpecHash": "lVXALdRp1hI=",
   "success": true,
-  "projectFilePath": "C:\\Users\\matia\\Desktop\\Visual\\LubricentroVelezV2\\LubricentroVelezV2.csproj",
+  "projectFilePath": "C:\\Users\\matia\\Desktop\\Visual\\LubricentroVelez\\LubricentroVelezV2\\LubricentroVelezV2.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\matia\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\matia\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
