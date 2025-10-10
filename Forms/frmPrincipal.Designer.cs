@@ -61,9 +61,9 @@
             btnNuevoAceite.ImageAlign = ContentAlignment.MiddleLeft;
             btnNuevoAceite.Location = new Point(164, 12);
             btnNuevoAceite.Name = "btnNuevoAceite";
-            btnNuevoAceite.Size = new Size(134, 40);
+            btnNuevoAceite.Size = new Size(106, 40);
             btnNuevoAceite.TabIndex = 1;
-            btnNuevoAceite.Text = "Nuevo Aceite";
+            btnNuevoAceite.Text = "Aceites";
             btnNuevoAceite.TextAlign = ContentAlignment.MiddleRight;
             btnNuevoAceite.UseVisualStyleBackColor = false;
             // 
@@ -74,11 +74,11 @@
             btnNuevoAditivo.Font = new Font("Lucida Console", 9.75F);
             btnNuevoAditivo.Image = (Image)resources.GetObject("btnNuevoAditivo.Image");
             btnNuevoAditivo.ImageAlign = ContentAlignment.MiddleLeft;
-            btnNuevoAditivo.Location = new Point(321, 12);
+            btnNuevoAditivo.Location = new Point(294, 12);
             btnNuevoAditivo.Name = "btnNuevoAditivo";
-            btnNuevoAditivo.Size = new Size(142, 40);
+            btnNuevoAditivo.Size = new Size(106, 40);
             btnNuevoAditivo.TabIndex = 2;
-            btnNuevoAditivo.Text = "Nuevo Aditivo";
+            btnNuevoAditivo.Text = "Aditivos";
             btnNuevoAditivo.TextAlign = ContentAlignment.MiddleRight;
             btnNuevoAditivo.UseVisualStyleBackColor = false;
             // 
@@ -126,6 +126,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmPrincipal";
             Text = "Lubricentro Velez";
+            WindowState = FormWindowState.Maximized;
             Load += frmPrincipal_Load;
             ((System.ComponentModel.ISupportInitialize)dgvOrdenes).EndInit();
             ResumeLayout(false);

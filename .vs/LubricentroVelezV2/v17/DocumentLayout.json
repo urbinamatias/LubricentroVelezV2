@@ -1,0 +1,36 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\matia\\Desktop\\Visual\\LubricentroVelez\\LubricentroVelezV2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{04A8A8F1-4DDD-407D-8239-4E3611E86999}|LubricentroVelezV2.csproj|c:\\users\\matia\\desktop\\visual\\lubricentrovelez\\lubricentrovelezv2\\forms\\frmprincipal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{04A8A8F1-4DDD-407D-8239-4E3611E86999}|LubricentroVelezV2.csproj|solutionrelative:forms\\frmprincipal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "frmPrincipal.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\matia\\Desktop\\Visual\\LubricentroVelez\\LubricentroVelezV2\\Forms\\frmPrincipal.cs",
+              "RelativeDocumentMoniker": "Forms\\frmPrincipal.cs",
+              "ToolTip": "C:\\Users\\matia\\Desktop\\Visual\\LubricentroVelez\\LubricentroVelezV2\\Forms\\frmPrincipal.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Forms\\frmPrincipal.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-10T19:15:23.666Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
