@@ -7,4 +7,5 @@ Se implementaron correcciones de bugs del proyecto original y nuevas funcionalid
 
 Updated and modernized old project, created from scratch on an existing database.
 Bug fixes of the original project and new features not finalized in the first version were implemented.
+
 <>
