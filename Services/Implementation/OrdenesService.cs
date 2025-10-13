@@ -20,5 +20,9 @@ namespace LubricentroVelezV2.Services.Implementation
         {
             return _repository.FillGridAsync();
         }
+        public async Task<List<Models.Aceites>> GetAceitesAsync()
+        {
+            return await _repository.GetAceitesAsync();
+        }
     }
 }
