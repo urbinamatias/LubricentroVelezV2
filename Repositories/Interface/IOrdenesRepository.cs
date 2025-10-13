@@ -12,5 +12,6 @@ namespace LubricentroVelezV2.Repositories.Interface
     {
         Task<List<OrdenesTrabajoDTO>> FillGridAsync();
         Task<List<OrdenesTrabajos>> GetAllAsync();
+        Task<List<Aceites>> GetAceitesAsync();
     }
 }

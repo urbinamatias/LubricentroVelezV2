@@ -1,4 +1,5 @@
 ﻿using LubricentroVelezV2.DTOs;
+using LubricentroVelezV2.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,5 +11,6 @@ namespace LubricentroVelezV2.Services.Interface
     public interface IOrdenesService
     {
         Task<List<OrdenesTrabajoDTO>> FillGridAsync();
+        Task<List<Aceites>> GetAceitesAsync();
     }
 }

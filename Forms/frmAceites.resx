@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
-    Microsoft ResX Schema 
-    
+  <!--
+    Microsoft ResX Schema
+
     Version 2.0
-    
-    The primary goals of this format is to allow a simple XML format 
-    that is mostly human readable. The generation and parsing of the 
-    various data types are done through the TypeConverter classes 
+
+    The primary goals of this format is to allow a simple XML format
+    that is mostly human readable. The generation and parsing of the
+    various data types are done through the TypeConverter classes
     associated with the data types.
-    
+
     Example:
-    
+
     ... ado.net/XML headers & schema ...
     <resheader name="resmimetype">text/microsoft-resx</resheader>
     <resheader name="version">2.0</resheader>
@@ -26,36 +26,36 @@
         <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
         <comment>This is a comment</comment>
     </data>
-                
-    There are any number of "resheader" rows that contain simple 
+
+    There are any number of "resheader" rows that contain simple
     name/value pairs.
-    
-    Each data row contains a name, and value. The row also contains a 
-    type or mimetype. Type corresponds to a .NET class that support 
-    text/value conversion through the TypeConverter architecture. 
-    Classes that don't support this are serialized and stored with the 
+
+    Each data row contains a name, and value. The row also contains a
+    type or mimetype. Type corresponds to a .NET class that support
+    text/value conversion through the TypeConverter architecture.
+    Classes that don't support this are serialized and stored with the
     mimetype set.
-    
-    The mimetype is used for serialized objects, and tells the 
-    ResXResourceReader how to depersist the object. This is currently not 
+
+    The mimetype is used for serialized objects, and tells the
+    ResXResourceReader how to depersist the object. This is currently not
     extensible. For a given mimetype the value must be set accordingly:
-    
-    Note - application/x-microsoft.net.object.binary.base64 is the format 
-    that the ResXResourceWriter will generate, however the reader can 
+
+    Note - application/x-microsoft.net.object.binary.base64 is the format
+    that the ResXResourceWriter will generate, however the reader can
     read any of the formats listed below.
-    
+
     mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with 
+    value   : The object must be serialized with
             : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
-    
+
     mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with 
+    value   : The object must be serialized with
             : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
             : and then encoded with base64 encoding.
 
     mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array 
+    value   : The object must be serialized into a byte array
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
@@ -117,14 +117,39 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="editar_aceite" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Icons\editar_aceite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnAñadir.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DwAACw8BkvkDpQAAAV9JREFUSEvdlE1OwzAQhSMQXIhbkIBdIPQGXCNb/i7AmqogFg63CT8td0CwhzfN
+        GDvluUkRqz7pk6rMzIs740y22Sofyt2iNuO8NtPc2afC2U9BfsuzA2dPJUfT1xOMj8G8qO3Xasxs39kj
+        LesXTrSNU15zszT4V1dVVW2pTVp/Mf/B2Qu14WrbQgrXwli160oHOuNFLdPmfgGLedCqNzp4mI9ZQYwX
+        i8XkblSqbRBecMeSY7xYrIuZqG0QHr7w5IAXi8XId6K2QfhwPpYTpd99YjMRL7UN+s8X4Lq+q20QWvT8
+        K3EJLxaLwWEbtQ2S3cKSY7xYrIu5VdsgWVw8OeDFYjH54+GJ2gbt3ZztYPqvrMAj/aY972DmyQ0rW5EX
+        DQedMGrHJVuRFQ7C2XO1SUtWLgZ+SQ1WgU06aF17oZe2byaC5PS2JaV28KMSL5vI3ZaPUWkWz3BbJEfT
+        N1JZ9g1/Gip5iaq4QAAAAABJRU5ErkJggg==
+</value>
   </data>
-  <data name="agregar_aceite" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Icons\agregar_aceite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="btnEditar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DwAACw8BkvkDpQAAAONJREFUSEvtlL8JAjEcRk87BQVBK+2t/DeCaziEMziEQ7iCOoCNjTYibmBvre87
+        OMh5ySXxsBB88IqE/L4vhOOSX6WFC+ynqy+wxide0pXBFPd4jFSBdeyibt1A5VwxhzbVHOMB26jwE95w
+        gCoZYg7dxhbi8j3c3K9hgZgCne1gD83wO47RSmjBR+FCgzIEhZ8xOFyEFrhuri9piU5CCsqeRZ9r6byv
+        wPYsI8zwXtB3YIWucFG5YIOucFG5YI4zbKarIpULfPwLvHjnd/jA7GCsmt2ikwmqxDYcosK9/6M/Bkny
+        AqT8oCdzgPgTAAAAAElFTkSuQmCC
+</value>
   </data>
-  <data name="eliminar_aceite" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Icons\eliminar_aceite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="btnEliminar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DwAACw8BkvkDpQAAAL9JREFUSEvt1DEOAVEUheGJ2goobICelbAPYSFUGiyBhtiDUNKMFVAqVPw3FDI5
+        uXNnFAr+5Esmk/dOMcUkP9cc0+fj582wzbi+ZN/b2XBH3Es6ILc+JiXZ3e/XQPYbR9nd3KpQ3zfC7oa6
+        QA14zgi3hxrx7BBuCTXiWSDcGGrEM0K4IdSIZ4BwPagRTxfhOlAjnjbC1aFGPDWEq+AGNaTYWbtTqBPU
+        mJKicGuoMWWFwrWwgfqpvbMzTfwrU5I8AOlc0CMKESSDAAAAAElFTkSuQmCC
+</value>
   </data>
+  <metadata name="$this.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
 </root>

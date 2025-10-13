@@ -66,6 +66,7 @@
             btnNuevoAceite.Text = "Aceites";
             btnNuevoAceite.TextAlign = ContentAlignment.MiddleRight;
             btnNuevoAceite.UseVisualStyleBackColor = false;
+            btnNuevoAceite.Click += btnNuevoAceite_Click;
             // 
             // btnNuevoAditivo
             // 

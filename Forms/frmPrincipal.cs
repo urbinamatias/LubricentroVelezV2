@@ -1,4 +1,5 @@
 using LubricentroVelezV2.DTOs;
+using LubricentroVelezV2.Forms;
 using LubricentroVelezV2.Services.Implementation;
 using System.ComponentModel;
 using System.Windows.Forms;
@@ -109,7 +110,7 @@ namespace LubricentroVelezV2
 
                 _bindingSource.DataSource = _ordenes;
 
-                if(!string.IsNullOrEmpty(_lastSortedColumn))
+                if (!string.IsNullOrEmpty(_lastSortedColumn))
                     AplicarOrden();
             }
         }
@@ -140,6 +141,12 @@ namespace LubricentroVelezV2
             _bindingSource.DataSource = filtradas;
             if (!string.IsNullOrEmpty(_lastSortedColumn))
                 AplicarOrden();
+        }
+
+        private void btnNuevoAceite_Click(object sender, EventArgs e)
+        {
+            frmAceites frmAceites = new (_service);
+            frmAceites.ShowDialog();
         }
     }
 }

@@ -32,10 +32,13 @@ namespace LubricentroVelezV2.Repositories.Implementation
                     Aditivo = ot.IdAditivoNavigation.Nombre
                 }).ToListAsync();
         }
-
         public Task<List<OrdenesTrabajos>> GetAllAsync()
         {
             throw new NotImplementedException();
+        }
+        public async Task<List<Aceites>> GetAceitesAsync()
+        {
+            return await _context.Aceites.OrderBy(a => a.Marca).ThenBy(a => a.Nombre).ToListAsync();
         }
     }
 }
