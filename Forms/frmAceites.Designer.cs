@@ -61,6 +61,7 @@
             btnAñadir.Text = "Añadir";
             btnAñadir.TextAlign = ContentAlignment.MiddleRight;
             btnAñadir.UseVisualStyleBackColor = false;
+            btnAñadir.Click += btnAñadir_Click;
             // 
             // btnEditar
             // 
@@ -76,6 +77,7 @@
             btnEditar.Text = "Editar";
             btnEditar.TextAlign = ContentAlignment.MiddleRight;
             btnEditar.UseVisualStyleBackColor = false;
+            btnEditar.Click += btnEditar_Click;
             // 
             // btnEliminar
             // 
@@ -91,6 +93,7 @@
             btnEliminar.Text = "Eliminar";
             btnEliminar.TextAlign = ContentAlignment.MiddleRight;
             btnEliminar.UseVisualStyleBackColor = false;
+            btnEliminar.Click += btnEliminar_Click;
             // 
             // dgvAceites
             // 
@@ -111,7 +114,7 @@
             dgvAceites.ScrollBars = ScrollBars.Vertical;
             dgvAceites.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvAceites.Size = new Size(283, 325);
-            dgvAceites.TabIndex = 5;
+            dgvAceites.TabIndex = 1;
             // 
             // frmAceites
             // 
@@ -123,8 +126,10 @@
             Controls.Add(btnEditar);
             Controls.Add(btnAñadir);
             Controls.Add(lblAceites);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             Name = "frmAceites";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Aceites";
             Load += frmAceites_Load;
             ((System.ComponentModel.ISupportInitialize)dgvAceites).EndInit();

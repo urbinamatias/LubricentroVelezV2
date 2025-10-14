@@ -14,6 +14,7 @@ namespace LubricentroVelezV2.Forms
 {
     public partial class frmAceites : Form
     {
+        public event EventHandler? DataChanged;
         private readonly IOrdenesService _service;
         private List<Aceites> _aceites = new List<Aceites>();
         public frmAceites(IOrdenesService service)
@@ -24,12 +25,62 @@ namespace LubricentroVelezV2.Forms
 
         private async void frmAceites_Load(object sender, EventArgs e)
         {
+            await LoadAceitesAsync();
+        }
+        private async Task LoadAceitesAsync()
+        {
             this.Cursor = Cursors.WaitCursor;
             _aceites = await _service.GetAceitesAsync();
             dgvAceites.DataSource = _aceites;
             dgvAceites.Columns["IdAceite"].Visible = false;
             dgvAceites.Columns["OrdenesTrabajos"].Visible = false;
             this.Cursor = Cursors.Default;
+        }
+
+        private async void btnAñadir_Click(object sender, EventArgs e)
+        {
+            using var frm = new frmEditarElemento(_service, "Aceite");
+            if (frm.ShowDialog() == DialogResult.OK)
+                await LoadAceitesAsync();
+                DataChanged?.Invoke(this, EventArgs.Empty);
+        }
+        private async void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (dgvAceites.CurrentRow == null) return;
+
+            var seleccionado = dgvAceites.CurrentRow.DataBoundItem as Aceites;
+            if (seleccionado == null) return;
+
+            using var frm = new frmEditarElemento(_service, "Aceite", seleccionado);
+            if (frm.ShowDialog() == DialogResult.OK)
+                await LoadAceitesAsync();
+                DataChanged?.Invoke(this, EventArgs.Empty);
+        }
+        private async void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (dgvAceites.CurrentRow == null) return;
+
+            var seleccionado = dgvAceites.CurrentRow.DataBoundItem as Aceites;
+            if (seleccionado == null) return;
+
+            if (MessageBox.Show($"¿Seguro que desea eliminar '{seleccionado.Nombre}'?",
+                "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                try
+                {
+                    await _service.DeleteAceiteAsync(seleccionado.IdAceite);
+                    await LoadAceitesAsync();
+                    DataChanged?.Invoke(this, EventArgs.Empty);
+                }
+                catch (InvalidOperationException ex)
+                {
+                    MessageBox.Show(ex.Message, "No se puede eliminar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error inesperado: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }

@@ -121,7 +121,7 @@
   <data name="btnAñadir.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DwAACw8BkvkDpQAAAV9JREFUSEvdlE1OwzAQhSMQXIhbkIBdIPQGXCNb/i7AmqogFg63CT8td0CwhzfN
+        DAAACwwBP0AiyAAAAV9JREFUSEvdlE1OwzAQhSMQXIhbkIBdIPQGXCNb/i7AmqogFg63CT8td0CwhzfN
         GDvluUkRqz7pk6rMzIs740y22Sofyt2iNuO8NtPc2afC2U9BfsuzA2dPJUfT1xOMj8G8qO3Xasxs39kj
         LesXTrSNU15zszT4V1dVVW2pTVp/Mf/B2Qu14WrbQgrXwli160oHOuNFLdPmfgGLedCqNzp4mI9ZQYwX
         i8XkblSqbRBecMeSY7xYrIuZqG0QHr7w5IAXi8XId6K2QfhwPpYTpd99YjMRL7UN+s8X4Lq+q20QWvT8
@@ -133,7 +133,7 @@
   <data name="btnEditar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DwAACw8BkvkDpQAAAONJREFUSEvtlL8JAjEcRk87BQVBK+2t/DeCaziEMziEQ7iCOoCNjTYibmBvre87
+        DAAACwwBP0AiyAAAAONJREFUSEvtlL8JAjEcRk87BQVBK+2t/DeCaziEMziEQ7iCOoCNjTYibmBvre87
         OMh5ySXxsBB88IqE/L4vhOOSX6WFC+ynqy+wxide0pXBFPd4jFSBdeyibt1A5VwxhzbVHOMB26jwE95w
         gCoZYg7dxhbi8j3c3K9hgZgCne1gD83wO47RSmjBR+FCgzIEhZ8xOFyEFrhuri9piU5CCsqeRZ9r6byv
         wPYsI8zwXtB3YIWucFG5YIOucFG5YI4zbKarIpULfPwLvHjnd/jA7GCsmt2ikwmqxDYcosK9/6M/Bkny
@@ -143,7 +143,7 @@
   <data name="btnEliminar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DwAACw8BkvkDpQAAAL9JREFUSEvt1DEOAVEUheGJ2goobICelbAPYSFUGiyBhtiDUNKMFVAqVPw3FDI5
+        DAAACwwBP0AiyAAAAL9JREFUSEvt1DEOAVEUheGJ2goobICelbAPYSFUGiyBhtiDUNKMFVAqVPw3FDI5
         uXNnFAr+5Esmk/dOMcUkP9cc0+fj582wzbi+ZN/b2XBH3Es6ILc+JiXZ3e/XQPYbR9nd3KpQ3zfC7oa6
         QA14zgi3hxrx7BBuCTXiWSDcGGrEM0K4IdSIZ4BwPagRTxfhOlAjnjbC1aFGPDWEq+AGNaTYWbtTqBPU
         mJKicGuoMWWFwrWwgfqpvbMzTfwrU5I8AOlc0CMKESSDAAAAAElFTkSuQmCC

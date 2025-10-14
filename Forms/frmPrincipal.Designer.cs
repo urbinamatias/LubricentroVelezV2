@@ -82,6 +82,7 @@
             btnNuevoAditivo.Text = "Aditivos";
             btnNuevoAditivo.TextAlign = ContentAlignment.MiddleRight;
             btnNuevoAditivo.UseVisualStyleBackColor = false;
+            btnNuevoAditivo.Click += btnNuevoAditivo_Click;
             // 
             // txtBuscar
             // 
