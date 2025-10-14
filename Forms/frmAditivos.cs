@@ -12,55 +12,59 @@ using System.Windows.Forms;
 
 namespace LubricentroVelezV2.Forms
 {
-    public partial class frmAceites : Form
+    public partial class frmAditivos : Form
     {
         public event EventHandler? DataChanged;
         private readonly IOrdenesService _service;
-        private List<Aceites> _aceites = new List<Aceites>();
-        public frmAceites(IOrdenesService service)
+        private List<Aditivos> _aditivos = new List<Aditivos>();
+        public frmAditivos(IOrdenesService service)
         {
             InitializeComponent();
             _service = service;
         }
 
-        private async void frmAceites_Load(object sender, EventArgs e)
+        private async void frmAditivos_Load(object sender, EventArgs e)
         {
-            await LoadAceitesAsync();
+            await LoadAditivosAsync();
         }
-        private async Task LoadAceitesAsync()
+        private async Task LoadAditivosAsync()
         {
             this.Cursor = Cursors.WaitCursor;
-            _aceites = await _service.GetAceitesAsync();
-            dgvAceites.DataSource = _aceites;
-            dgvAceites.Columns["IdAceite"].Visible = false;
-            dgvAceites.Columns["OrdenesTrabajos"].Visible = false;
+            _aditivos = await _service.GetAditivosAsync();
+            dgvAditivos.DataSource = _aditivos;
+            dgvAditivos.Columns["IdAditivo"].Visible = false;
+            dgvAditivos.Columns["OrdenesTrabajos"].Visible = false;
             this.Cursor = Cursors.Default;
         }
 
         private async void btnAñadir_Click(object sender, EventArgs e)
         {
-            using var frm = new frmEditarElemento(_service, "Aceite");
-            if (frm.ShowDialog() == DialogResult.OK)
-                await LoadAceitesAsync();
-                DataChanged?.Invoke(this, EventArgs.Empty);
+            {
+                using var frm = new frmEditarElemento(_service, "Aditivo");
+                if (frm.ShowDialog() == DialogResult.OK)
+                    await LoadAditivosAsync();
+                    DataChanged?.Invoke(this, EventArgs.Empty);
+            }
         }
+
         private async void btnEditar_Click(object sender, EventArgs e)
         {
-            if (dgvAceites.CurrentRow == null) return;
+            if (dgvAditivos.CurrentRow == null) return;
 
-            var seleccionado = dgvAceites.CurrentRow.DataBoundItem as Aceites;
+            var seleccionado = dgvAditivos.CurrentRow.DataBoundItem as Aditivos;
             if (seleccionado == null) return;
 
-            using var frm = new frmEditarElemento(_service, "Aceite", seleccionado);
+            using var frm = new frmEditarElemento(_service, "Aditivo", seleccionado);
             if (frm.ShowDialog() == DialogResult.OK)
-                await LoadAceitesAsync();
+                await LoadAditivosAsync();
                 DataChanged?.Invoke(this, EventArgs.Empty);
         }
+
         private async void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (dgvAceites.CurrentRow == null) return;
+            if (dgvAditivos.CurrentRow == null) return;
 
-            var seleccionado = dgvAceites.CurrentRow.DataBoundItem as Aceites;
+            var seleccionado = dgvAditivos.CurrentRow.DataBoundItem as Aditivos;
             if (seleccionado == null) return;
 
             if (MessageBox.Show($"¿Seguro que desea eliminar '{seleccionado.Nombre}'?",
@@ -68,8 +72,8 @@ namespace LubricentroVelezV2.Forms
             {
                 try
                 {
-                    await _service.DeleteAceiteAsync(seleccionado.IdAceite);
-                    await LoadAceitesAsync();
+                    await _service.DeleteAditivoAsync(seleccionado.IdAditivo);
+                    await LoadAditivosAsync();
                     DataChanged?.Invoke(this, EventArgs.Empty);
                 }
                 catch (InvalidOperationException ex)

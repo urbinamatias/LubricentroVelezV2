@@ -114,3 +114,5 @@ C:\Users\matia\Desktop\Visual\LubricentroVelez\LubricentroVelezV2\obj\Debug\net8
 C:\Users\matia\Desktop\Visual\LubricentroVelez\LubricentroVelezV2\obj\Debug\net8.0-windows\LubricentroVelezV2.genruntimeconfig.cache
 C:\Users\matia\Desktop\Visual\LubricentroVelez\LubricentroVelezV2\obj\Debug\net8.0-windows\ref\LubricentroVelezV2.dll
 C:\Users\matia\Desktop\Visual\LubricentroVelez\LubricentroVelezV2\obj\Debug\net8.0-windows\LubricentroVelezV2.Forms.frmAceites.resources
+C:\Users\matia\Desktop\Visual\LubricentroVelez\LubricentroVelezV2\obj\Debug\net8.0-windows\LubricentroVelezV2.Forms.frmAditivos.resources
+C:\Users\matia\Desktop\Visual\LubricentroVelez\LubricentroVelezV2\obj\Debug\net8.0-windows\LubricentroVelezV2.Forms.frmEditarElemento.resources

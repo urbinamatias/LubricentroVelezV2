@@ -36,6 +36,11 @@ namespace LubricentroVelezV2
 
         private async void frmPrincipal_Load(object sender, EventArgs e)
         {
+            await LoadOrdenesAsync();
+        }
+
+        private async Task LoadOrdenesAsync()
+        {
             this.Cursor = Cursors.WaitCursor;
             _ordenes = await _service.FillGridAsync();
             _bindingSource.DataSource = _ordenes;
@@ -50,6 +55,7 @@ namespace LubricentroVelezV2
 
             SetPlaceHolder();
         }
+
         private void dgvOrdenes_ColumnHeaderMouseClick(object? sender, DataGridViewCellMouseEventArgs e)
         {
             string columnName = dgvOrdenes.Columns[e.ColumnIndex].DataPropertyName;
@@ -145,8 +151,16 @@ namespace LubricentroVelezV2
 
         private void btnNuevoAceite_Click(object sender, EventArgs e)
         {
-            frmAceites frmAceites = new (_service);
+            frmAceites frmAceites = new(_service);
+            frmAceites.DataChanged += async (s, ev) => await LoadOrdenesAsync();
             frmAceites.ShowDialog();
+        }
+
+        private void btnNuevoAditivo_Click(object sender, EventArgs e)
+        {
+            frmAditivos frmAditivos = new(_service);
+            frmAditivos.DataChanged += async (s, ev) => await LoadOrdenesAsync();
+            frmAditivos.ShowDialog();
         }
     }
 }

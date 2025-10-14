@@ -13,5 +13,12 @@ namespace LubricentroVelezV2.Repositories.Interface
         Task<List<OrdenesTrabajoDTO>> FillGridAsync();
         Task<List<OrdenesTrabajos>> GetAllAsync();
         Task<List<Aceites>> GetAceitesAsync();
+        Task<List<Aditivos>> GetAditivosAsync();
+        Task AddAceiteAsync(Aceites aceite);
+        Task UpdateAceiteAsync(Aceites aceite);
+        Task DeleteAceiteAsync(int id);
+        Task AddAditivoAsync(Aditivos aditivo);
+        Task UpdateAditivoAsync(Aditivos aditivo);
+        Task DeleteAditivoAsync(int id);
     }
 }

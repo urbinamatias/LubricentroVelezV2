@@ -1,6 +1,6 @@
 ﻿namespace LubricentroVelezV2.Forms
 {
-    partial class frmAceites
+    partial class frmAditivos
     {
         /// <summary>
         /// Required designer variable.
@@ -28,24 +28,45 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAceites));
-            lblAceites = new Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAditivos));
+            lblAditivos = new Label();
+            dgvAditivos = new DataGridView();
             btnAñadir = new Button();
             btnEditar = new Button();
             btnEliminar = new Button();
-            dgvAceites = new DataGridView();
-            ((System.ComponentModel.ISupportInitialize)dgvAceites).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvAditivos).BeginInit();
             SuspendLayout();
             // 
-            // lblAceites
+            // lblAditivos
             // 
-            lblAceites.AutoSize = true;
-            lblAceites.Font = new Font("Lucida Console", 12F, FontStyle.Bold);
-            lblAceites.Location = new Point(29, 33);
-            lblAceites.Name = "lblAceites";
-            lblAceites.Size = new Size(84, 16);
-            lblAceites.TabIndex = 0;
-            lblAceites.Text = "Aceites";
+            lblAditivos.AutoSize = true;
+            lblAditivos.Font = new Font("Lucida Console", 12F, FontStyle.Bold);
+            lblAditivos.Location = new Point(29, 33);
+            lblAditivos.Name = "lblAditivos";
+            lblAditivos.Size = new Size(95, 16);
+            lblAditivos.TabIndex = 0;
+            lblAditivos.Text = "Aditivos";
+            // 
+            // dgvAditivos
+            // 
+            dgvAditivos.AllowUserToAddRows = false;
+            dgvAditivos.AllowUserToDeleteRows = false;
+            dgvAditivos.AllowUserToResizeColumns = false;
+            dgvAditivos.AllowUserToResizeRows = false;
+            dgvAditivos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvAditivos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvAditivos.BackgroundColor = SystemColors.AppWorkspace;
+            dgvAditivos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvAditivos.GridColor = SystemColors.Control;
+            dgvAditivos.Location = new Point(29, 61);
+            dgvAditivos.MultiSelect = false;
+            dgvAditivos.Name = "dgvAditivos";
+            dgvAditivos.ReadOnly = true;
+            dgvAditivos.RowHeadersVisible = false;
+            dgvAditivos.ScrollBars = ScrollBars.Vertical;
+            dgvAditivos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvAditivos.Size = new Size(283, 325);
+            dgvAditivos.TabIndex = 1;
             // 
             // btnAñadir
             // 
@@ -82,7 +103,6 @@
             // btnEliminar
             // 
             btnEliminar.BackColor = SystemColors.ActiveCaption;
-            btnEliminar.Cursor = Cursors.Hand;
             btnEliminar.Font = new Font("Lucida Console", 9.75F);
             btnEliminar.Image = (Image)resources.GetObject("btnEliminar.Image");
             btnEliminar.ImageAlign = ContentAlignment.MiddleLeft;
@@ -95,54 +115,33 @@
             btnEliminar.UseVisualStyleBackColor = false;
             btnEliminar.Click += btnEliminar_Click;
             // 
-            // dgvAceites
-            // 
-            dgvAceites.AllowUserToAddRows = false;
-            dgvAceites.AllowUserToDeleteRows = false;
-            dgvAceites.AllowUserToResizeColumns = false;
-            dgvAceites.AllowUserToResizeRows = false;
-            dgvAceites.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dgvAceites.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvAceites.BackgroundColor = SystemColors.AppWorkspace;
-            dgvAceites.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvAceites.GridColor = SystemColors.Control;
-            dgvAceites.Location = new Point(29, 61);
-            dgvAceites.MultiSelect = false;
-            dgvAceites.Name = "dgvAceites";
-            dgvAceites.ReadOnly = true;
-            dgvAceites.RowHeadersVisible = false;
-            dgvAceites.ScrollBars = ScrollBars.Vertical;
-            dgvAceites.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvAceites.Size = new Size(283, 325);
-            dgvAceites.TabIndex = 1;
-            // 
-            // frmAceites
+            // frmAditivos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(351, 453);
-            Controls.Add(dgvAceites);
             Controls.Add(btnEliminar);
             Controls.Add(btnEditar);
             Controls.Add(btnAñadir);
-            Controls.Add(lblAceites);
+            Controls.Add(dgvAditivos);
+            Controls.Add(lblAditivos);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
-            Name = "frmAceites";
+            Name = "frmAditivos";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Aceites";
-            Load += frmAceites_Load;
-            ((System.ComponentModel.ISupportInitialize)dgvAceites).EndInit();
+            Text = "Aditivos";
+            Load += frmAditivos_Load;
+            ((System.ComponentModel.ISupportInitialize)dgvAditivos).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Label lblAceites;
+        private Label lblAditivos;
+        private DataGridView dgvAditivos;
         private Button btnAñadir;
         private Button btnEditar;
         private Button btnEliminar;
-        private DataGridView dgvAceites;
     }
 }
