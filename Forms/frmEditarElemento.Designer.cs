@@ -67,7 +67,7 @@
             btnGuardar.Location = new Point(86, 174);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(106, 40);
-            btnGuardar.TabIndex = 3;
+            btnGuardar.TabIndex = 2;
             btnGuardar.Text = "Guardar";
             btnGuardar.TextAlign = ContentAlignment.MiddleRight;
             btnGuardar.UseVisualStyleBackColor = false;
@@ -83,7 +83,7 @@
             btnCancelar.Location = new Point(198, 174);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(106, 40);
-            btnCancelar.TabIndex = 4;
+            btnCancelar.TabIndex = 3;
             btnCancelar.Text = "Cancelar";
             btnCancelar.TextAlign = ContentAlignment.MiddleRight;
             btnCancelar.UseVisualStyleBackColor = false;
@@ -95,7 +95,7 @@
             txtCampo1.Location = new Point(25, 52);
             txtCampo1.Name = "txtCampo1";
             txtCampo1.Size = new Size(363, 25);
-            txtCampo1.TabIndex = 5;
+            txtCampo1.TabIndex = 0;
             // 
             // txtCampo2
             // 
@@ -103,7 +103,7 @@
             txtCampo2.Location = new Point(25, 132);
             txtCampo2.Name = "txtCampo2";
             txtCampo2.Size = new Size(363, 25);
-            txtCampo2.TabIndex = 6;
+            txtCampo2.TabIndex = 1;
             // 
             // frmEditarElemento
             // 

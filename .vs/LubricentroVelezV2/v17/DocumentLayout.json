@@ -1,0 +1,227 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\matia\\Desktop\\Visual\\LubricentroVelez\\LubricentroVelezV2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{04A8A8F1-4DDD-407D-8239-4E3611E86999}|LubricentroVelezV2.csproj|c:\\users\\matia\\desktop\\visual\\lubricentrovelez\\lubricentrovelezv2\\forms\\frmeditarelemento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{04A8A8F1-4DDD-407D-8239-4E3611E86999}|LubricentroVelezV2.csproj|solutionrelative:forms\\frmeditarelemento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{04A8A8F1-4DDD-407D-8239-4E3611E86999}|LubricentroVelezV2.csproj|c:\\users\\matia\\desktop\\visual\\lubricentrovelez\\lubricentrovelezv2\\forms\\frmaditivos.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{04A8A8F1-4DDD-407D-8239-4E3611E86999}|LubricentroVelezV2.csproj|solutionrelative:forms\\frmaditivos.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{04A8A8F1-4DDD-407D-8239-4E3611E86999}|LubricentroVelezV2.csproj|c:\\users\\matia\\desktop\\visual\\lubricentrovelez\\lubricentrovelezv2\\forms\\frmordentrabajo.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{04A8A8F1-4DDD-407D-8239-4E3611E86999}|LubricentroVelezV2.csproj|solutionrelative:forms\\frmordentrabajo.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{04A8A8F1-4DDD-407D-8239-4E3611E86999}|LubricentroVelezV2.csproj|c:\\users\\matia\\desktop\\visual\\lubricentrovelez\\lubricentrovelezv2\\forms\\frmaditivos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{04A8A8F1-4DDD-407D-8239-4E3611E86999}|LubricentroVelezV2.csproj|solutionrelative:forms\\frmaditivos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{04A8A8F1-4DDD-407D-8239-4E3611E86999}|LubricentroVelezV2.csproj|c:\\users\\matia\\desktop\\visual\\lubricentrovelez\\lubricentrovelezv2\\forms\\frmaceites.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{04A8A8F1-4DDD-407D-8239-4E3611E86999}|LubricentroVelezV2.csproj|solutionrelative:forms\\frmaceites.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{04A8A8F1-4DDD-407D-8239-4E3611E86999}|LubricentroVelezV2.csproj|c:\\users\\matia\\desktop\\visual\\lubricentrovelez\\lubricentrovelezv2\\forms\\frmordentrabajo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{04A8A8F1-4DDD-407D-8239-4E3611E86999}|LubricentroVelezV2.csproj|solutionrelative:forms\\frmordentrabajo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{04A8A8F1-4DDD-407D-8239-4E3611E86999}|LubricentroVelezV2.csproj|c:\\users\\matia\\desktop\\visual\\lubricentrovelez\\lubricentrovelezv2\\forms\\frmordentrabajo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{04A8A8F1-4DDD-407D-8239-4E3611E86999}|LubricentroVelezV2.csproj|solutionrelative:forms\\frmordentrabajo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{04A8A8F1-4DDD-407D-8239-4E3611E86999}|LubricentroVelezV2.csproj|c:\\users\\matia\\desktop\\visual\\lubricentrovelez\\lubricentrovelezv2\\forms\\frmprincipal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{04A8A8F1-4DDD-407D-8239-4E3611E86999}|LubricentroVelezV2.csproj|solutionrelative:forms\\frmprincipal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{04A8A8F1-4DDD-407D-8239-4E3611E86999}|LubricentroVelezV2.csproj|c:\\users\\matia\\desktop\\visual\\lubricentrovelez\\lubricentrovelezv2\\forms\\frmeditarelemento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{04A8A8F1-4DDD-407D-8239-4E3611E86999}|LubricentroVelezV2.csproj|solutionrelative:forms\\frmeditarelemento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{04A8A8F1-4DDD-407D-8239-4E3611E86999}|LubricentroVelezV2.csproj|c:\\users\\matia\\desktop\\visual\\lubricentrovelez\\lubricentrovelezv2\\forms\\frmaceites.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{04A8A8F1-4DDD-407D-8239-4E3611E86999}|LubricentroVelezV2.csproj|solutionrelative:forms\\frmaceites.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{04A8A8F1-4DDD-407D-8239-4E3611E86999}|LubricentroVelezV2.csproj|c:\\users\\matia\\desktop\\visual\\lubricentrovelez\\lubricentrovelezv2\\forms\\frmprincipal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{04A8A8F1-4DDD-407D-8239-4E3611E86999}|LubricentroVelezV2.csproj|solutionrelative:forms\\frmprincipal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{04A8A8F1-4DDD-407D-8239-4E3611E86999}|LubricentroVelezV2.csproj|c:\\users\\matia\\desktop\\visual\\lubricentrovelez\\lubricentrovelezv2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{04A8A8F1-4DDD-407D-8239-4E3611E86999}|LubricentroVelezV2.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "frmAditivos.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\matia\\Desktop\\Visual\\LubricentroVelez\\LubricentroVelezV2\\Forms\\frmAditivos.Designer.cs",
+              "RelativeDocumentMoniker": "Forms\\frmAditivos.Designer.cs",
+              "ToolTip": "C:\\Users\\matia\\Desktop\\Visual\\LubricentroVelez\\LubricentroVelezV2\\Forms\\frmAditivos.Designer.cs",
+              "RelativeToolTip": "Forms\\frmAditivos.Designer.cs",
+              "ViewState": "AgIAAGwAAAAAAAAAAAAowAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-05T00:52:57.566Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "frmAditivos.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\matia\\Desktop\\Visual\\LubricentroVelez\\LubricentroVelezV2\\Forms\\frmAditivos.cs",
+              "RelativeDocumentMoniker": "Forms\\frmAditivos.cs",
+              "ToolTip": "C:\\Users\\matia\\Desktop\\Visual\\LubricentroVelez\\LubricentroVelezV2\\Forms\\frmAditivos.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Forms\\frmAditivos.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-05T00:52:26.474Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "frmAceites.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\matia\\Desktop\\Visual\\LubricentroVelez\\LubricentroVelezV2\\Forms\\frmAceites.cs",
+              "RelativeDocumentMoniker": "Forms\\frmAceites.cs",
+              "ToolTip": "C:\\Users\\matia\\Desktop\\Visual\\LubricentroVelez\\LubricentroVelezV2\\Forms\\frmAceites.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Forms\\frmAceites.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-05T00:52:13.778Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "frmOrdenTrabajo.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\matia\\Desktop\\Visual\\LubricentroVelez\\LubricentroVelezV2\\Forms\\frmOrdenTrabajo.Designer.cs",
+              "RelativeDocumentMoniker": "Forms\\frmOrdenTrabajo.Designer.cs",
+              "ToolTip": "C:\\Users\\matia\\Desktop\\Visual\\LubricentroVelez\\LubricentroVelezV2\\Forms\\frmOrdenTrabajo.Designer.cs",
+              "RelativeToolTip": "Forms\\frmOrdenTrabajo.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-05T00:47:54.46Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "frmEditarElemento.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\matia\\Desktop\\Visual\\LubricentroVelez\\LubricentroVelezV2\\Forms\\frmEditarElemento.cs",
+              "RelativeDocumentMoniker": "Forms\\frmEditarElemento.cs",
+              "ToolTip": "C:\\Users\\matia\\Desktop\\Visual\\LubricentroVelez\\LubricentroVelezV2\\Forms\\frmEditarElemento.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Forms\\frmEditarElemento.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-04T23:56:20.496Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "frmOrdenTrabajo.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\matia\\Desktop\\Visual\\LubricentroVelez\\LubricentroVelezV2\\Forms\\frmOrdenTrabajo.cs",
+              "RelativeDocumentMoniker": "Forms\\frmOrdenTrabajo.cs",
+              "ToolTip": "C:\\Users\\matia\\Desktop\\Visual\\LubricentroVelez\\LubricentroVelezV2\\Forms\\frmOrdenTrabajo.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Forms\\frmOrdenTrabajo.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-05T00:34:12.279Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "frmOrdenTrabajo.cs",
+              "DocumentMoniker": "C:\\Users\\matia\\Desktop\\Visual\\LubricentroVelez\\LubricentroVelezV2\\Forms\\frmOrdenTrabajo.cs",
+              "RelativeDocumentMoniker": "Forms\\frmOrdenTrabajo.cs",
+              "ToolTip": "C:\\Users\\matia\\Desktop\\Visual\\LubricentroVelez\\LubricentroVelezV2\\Forms\\frmOrdenTrabajo.cs",
+              "RelativeToolTip": "Forms\\frmOrdenTrabajo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-05T00:47:27.242Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "frmPrincipal.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\matia\\Desktop\\Visual\\LubricentroVelez\\LubricentroVelezV2\\Forms\\frmPrincipal.cs",
+              "RelativeDocumentMoniker": "Forms\\frmPrincipal.cs",
+              "ToolTip": "C:\\Users\\matia\\Desktop\\Visual\\LubricentroVelez\\LubricentroVelezV2\\Forms\\frmPrincipal.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Forms\\frmPrincipal.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-04T23:19:00.041Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "frmEditarElemento.cs",
+              "DocumentMoniker": "C:\\Users\\matia\\Desktop\\Visual\\LubricentroVelez\\LubricentroVelezV2\\Forms\\frmEditarElemento.cs",
+              "RelativeDocumentMoniker": "Forms\\frmEditarElemento.cs",
+              "ToolTip": "C:\\Users\\matia\\Desktop\\Visual\\LubricentroVelez\\LubricentroVelezV2\\Forms\\frmEditarElemento.cs",
+              "RelativeToolTip": "Forms\\frmEditarElemento.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-05T00:01:04.52Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "frmAceites.cs",
+              "DocumentMoniker": "C:\\Users\\matia\\Desktop\\Visual\\LubricentroVelez\\LubricentroVelezV2\\Forms\\frmAceites.cs",
+              "RelativeDocumentMoniker": "Forms\\frmAceites.cs",
+              "ToolTip": "C:\\Users\\matia\\Desktop\\Visual\\LubricentroVelez\\LubricentroVelezV2\\Forms\\frmAceites.cs",
+              "RelativeToolTip": "Forms\\frmAceites.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAwwDgAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-05T00:05:52.824Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "frmPrincipal.cs",
+              "DocumentMoniker": "C:\\Users\\matia\\Desktop\\Visual\\LubricentroVelez\\LubricentroVelezV2\\Forms\\frmPrincipal.cs",
+              "RelativeDocumentMoniker": "Forms\\frmPrincipal.cs",
+              "ToolTip": "C:\\Users\\matia\\Desktop\\Visual\\LubricentroVelez\\LubricentroVelezV2\\Forms\\frmPrincipal.cs",
+              "RelativeToolTip": "Forms\\frmPrincipal.cs",
+              "ViewState": "AgIAAFIAAAAAAAAAAADgv2QAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-04T23:19:09.318Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\matia\\Desktop\\Visual\\LubricentroVelez\\LubricentroVelezV2\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\matia\\Desktop\\Visual\\LubricentroVelez\\LubricentroVelezV2\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-04T23:18:45.515Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
