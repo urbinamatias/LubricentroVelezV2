@@ -126,6 +126,7 @@
             Controls.Add(dgvAditivos);
             Controls.Add(lblAditivos);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "frmAditivos";
             StartPosition = FormStartPosition.CenterScreen;

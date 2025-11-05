@@ -127,6 +127,7 @@
             Controls.Add(btnAñadir);
             Controls.Add(lblAceites);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "frmAceites";
             StartPosition = FormStartPosition.CenterScreen;
