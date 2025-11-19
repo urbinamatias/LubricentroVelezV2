@@ -20,5 +20,9 @@ namespace LubricentroVelezV2.Repositories.Interface
         Task AddAditivoAsync(Aditivos aditivo);
         Task UpdateAditivoAsync(Aditivos aditivo);
         Task DeleteAditivoAsync(int id);
+        Task<LastOrderDataDTO> GetLastOrderDataByPatenteAsync(string patente, CancellationToken cancellationToken = default);
+        Task<OrdenTrabajoDetailsDTO> GetOrderDetailsByIdAsync(int idOt);
+        Task<int> AddOrdenTrabajoAsync(OrdenTrabajoDetailsDTO ordenDTO);
+        Task UpdateOrdenTrabajoAsync(OrdenTrabajoDetailsDTO ordenDTO);
     }
 }

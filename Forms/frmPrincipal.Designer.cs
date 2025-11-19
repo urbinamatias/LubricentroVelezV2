@@ -39,7 +39,7 @@
             // 
             // btnNuevaOrden
             // 
-            btnNuevaOrden.BackColor = SystemColors.ActiveCaption;
+            btnNuevaOrden.BackColor = SystemColors.ButtonFace;
             btnNuevaOrden.Cursor = Cursors.Hand;
             btnNuevaOrden.Font = new Font("Lucida Console", 9.75F);
             btnNuevaOrden.Image = (Image)resources.GetObject("btnNuevaOrden.Image");
@@ -54,7 +54,7 @@
             // 
             // btnNuevoAceite
             // 
-            btnNuevoAceite.BackColor = SystemColors.ActiveCaption;
+            btnNuevoAceite.BackColor = SystemColors.ButtonFace;
             btnNuevoAceite.Cursor = Cursors.Hand;
             btnNuevoAceite.Font = new Font("Lucida Console", 9.75F);
             btnNuevoAceite.Image = (Image)resources.GetObject("btnNuevoAceite.Image");
@@ -70,7 +70,7 @@
             // 
             // btnNuevoAditivo
             // 
-            btnNuevoAditivo.BackColor = SystemColors.ActiveCaption;
+            btnNuevoAditivo.BackColor = SystemColors.ButtonFace;
             btnNuevoAditivo.Cursor = Cursors.Hand;
             btnNuevoAditivo.Font = new Font("Lucida Console", 9.75F);
             btnNuevoAditivo.Image = (Image)resources.GetObject("btnNuevoAditivo.Image");
@@ -118,7 +118,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.AppWorkspace;
+            BackColor = SystemColors.ButtonFace;
             ClientSize = new Size(800, 450);
             Controls.Add(dgvOrdenes);
             Controls.Add(txtBuscar);

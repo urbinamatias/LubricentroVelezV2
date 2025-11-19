@@ -32,6 +32,9 @@ namespace LubricentroVelezV2
             txtBuscar.LostFocus += txtBuscar_LostFocus;
             txtBuscar.TextChanged += txtBuscar_TextChanged;
             txtBuscar.KeyPress += txtBuscar_KeyPress;
+
+            btnNuevaOrden.Click += btnNuevaOrden_Click;
+            dgvOrdenes.CellDoubleClick += dgvOrdenes_CellDoubleClick;
         }
 
         private async void frmPrincipal_Load(object sender, EventArgs e)
@@ -147,6 +150,31 @@ namespace LubricentroVelezV2
             _bindingSource.DataSource = filtradas;
             if (!string.IsNullOrEmpty(_lastSortedColumn))
                 AplicarOrden();
+        }
+        private void btnNuevaOrden_Click(object? sender, EventArgs e)
+        {
+            // Abre frmOrdenTrabajo en modo Nueva Orden
+            frmOrdenTrabajo frmOrden = new(_service);
+            frmOrden.DataChanged += async (s, ev) => await LoadOrdenesAsync();
+            frmOrden.ShowDialog();
+        }
+
+        private void dgvOrdenes_CellDoubleClick(object? sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return; // Ignorar clic en el encabezado
+
+            // Obtener el IdOt de la fila seleccionada
+            var selectedRow = dgvOrdenes.Rows[e.RowIndex].DataBoundItem as OrdenesTrabajoDTO;
+
+            if (selectedRow != null)
+            {
+                int idOt = selectedRow.IdOt;
+
+                // Abre frmOrdenTrabajo en modo Ver/Editar
+                frmOrdenTrabajo frmOrden = new(_service, idOt);
+                frmOrden.DataChanged += async (s, ev) => await LoadOrdenesAsync();
+                frmOrden.ShowDialog();
+            }
         }
 
         private void btnNuevoAceite_Click(object sender, EventArgs e)
