@@ -49,7 +49,7 @@
             // 
             // btnAñadir
             // 
-            btnAñadir.BackColor = SystemColors.ActiveCaption;
+            btnAñadir.BackColor = SystemColors.ButtonFace;
             btnAñadir.Cursor = Cursors.Hand;
             btnAñadir.Font = new Font("Lucida Console", 9.75F);
             btnAñadir.Image = (Image)resources.GetObject("btnAñadir.Image");
@@ -65,7 +65,7 @@
             // 
             // btnEditar
             // 
-            btnEditar.BackColor = SystemColors.ActiveCaption;
+            btnEditar.BackColor = SystemColors.ButtonFace;
             btnEditar.Cursor = Cursors.Hand;
             btnEditar.Font = new Font("Lucida Console", 9.75F);
             btnEditar.Image = (Image)resources.GetObject("btnEditar.Image");
@@ -81,7 +81,7 @@
             // 
             // btnEliminar
             // 
-            btnEliminar.BackColor = SystemColors.ActiveCaption;
+            btnEliminar.BackColor = SystemColors.ButtonFace;
             btnEliminar.Cursor = Cursors.Hand;
             btnEliminar.Font = new Font("Lucida Console", 9.75F);
             btnEliminar.Image = (Image)resources.GetObject("btnEliminar.Image");

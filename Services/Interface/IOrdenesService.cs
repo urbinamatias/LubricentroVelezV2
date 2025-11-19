@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static LubricentroVelezV2.Services.Implementation.OrdenesService;
 
 namespace LubricentroVelezV2.Services.Interface
 {
@@ -19,5 +20,11 @@ namespace LubricentroVelezV2.Services.Interface
         Task AddAditivoAsync(Aditivos aditivo);
         Task UpdateAditivoAsync(Aditivos aditivo);
         Task DeleteAditivoAsync(int id);
+        Task<List<AceiteComboItem>> GetAceitesForComboAsync();
+        Task<List<AditivoComboItem>> GetAditivosForComboAsync();
+        Task<LastOrderDataDTO> GetLastOrderDataByPatenteAsync(string patente, CancellationToken cancellationToken = default);
+        Task<OrdenTrabajoDetailsDTO> GetOrderDetailsByIdAsync(int idOt);
+        Task<int> AddOrdenTrabajoAsync(OrdenTrabajoDetailsDTO ordenDTO);
+        Task UpdateOrdenTrabajoAsync(OrdenTrabajoDetailsDTO ordenDTO);
     }
 }

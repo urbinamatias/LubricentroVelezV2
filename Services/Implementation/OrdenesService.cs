@@ -60,5 +60,59 @@ namespace LubricentroVelezV2.Services.Implementation
         {
             await _repository.UpdateAditivoAsync(aditivo);
         }
+        public async Task<List<AceiteComboItem>> GetAceitesForComboAsync()
+        {
+            var aceites = await _repository.GetAceitesAsync();
+            return aceites.Select(a => new AceiteComboItem
+            {
+                IdAceite = a.IdAceite,
+                Display = string.IsNullOrEmpty(a.Marca) ? a.Nombre : $"{a.Nombre} - {a.Marca}"
+            }).ToList();
+        }
+
+        // Método para obtener Aditivos
+        public async Task<List<AditivoComboItem>> GetAditivosForComboAsync()
+        {
+            var aditivos = await _repository.GetAditivosAsync();
+            return aditivos.Select(a => new AditivoComboItem
+            {
+                IdAditivo = a.IdAditivo,
+                Display = a.Nombre
+            }).ToList();
+        }
+
+        // Nuevos métodos del Servicio
+        public Task<LastOrderDataDTO> GetLastOrderDataByPatenteAsync(string patente, CancellationToken cancellationToken = default)
+        {
+            return _repository.GetLastOrderDataByPatenteAsync(patente, cancellationToken);
+        }
+
+        public Task<OrdenTrabajoDetailsDTO> GetOrderDetailsByIdAsync(int idOt)
+        {
+            return _repository.GetOrderDetailsByIdAsync(idOt);
+        }
+
+        public Task<int> AddOrdenTrabajoAsync(OrdenTrabajoDetailsDTO ordenDTO)
+        {
+            return _repository.AddOrdenTrabajoAsync(ordenDTO);
+        }
+
+        public Task UpdateOrdenTrabajoAsync(OrdenTrabajoDetailsDTO ordenDTO)
+        {
+            return _repository.UpdateOrdenTrabajoAsync(ordenDTO);
+        }
+
+        // Clases de Ayuda (puedes definirlas fuera si prefieres)
+        public class AceiteComboItem
+        {
+            public int IdAceite { get; set; }
+            public string Display { get; set; }
+        }
+
+        public class AditivoComboItem
+        {
+            public int IdAditivo { get; set; }
+            public string Display { get; set; }
+        }
     }
 }

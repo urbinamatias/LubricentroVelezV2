@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LubricentroVelezV2")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2dbdafa6dc462018a800c7204507c31f8e9da769")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+56656892e8ac8693063edf3749e14ce529d1a73c")]
 [assembly: System.Reflection.AssemblyProductAttribute("LubricentroVelezV2")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LubricentroVelezV2")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

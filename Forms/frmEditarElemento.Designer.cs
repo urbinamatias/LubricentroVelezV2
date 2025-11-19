@@ -59,7 +59,7 @@
             // 
             // btnGuardar
             // 
-            btnGuardar.BackColor = SystemColors.ActiveCaption;
+            btnGuardar.BackColor = SystemColors.ButtonFace;
             btnGuardar.Cursor = Cursors.Hand;
             btnGuardar.Font = new Font("Lucida Console", 9.75F);
             btnGuardar.Image = (Image)resources.GetObject("btnGuardar.Image");
@@ -75,7 +75,7 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.BackColor = SystemColors.ActiveCaption;
+            btnCancelar.BackColor = SystemColors.ButtonFace;
             btnCancelar.Cursor = Cursors.Hand;
             btnCancelar.Font = new Font("Lucida Console", 9.75F);
             btnCancelar.Image = (Image)resources.GetObject("btnCancelar.Image");
