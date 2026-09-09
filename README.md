@@ -125,15 +125,4 @@ covers (brake fluid, coolant, gearbox, differentials, battery, wipers, and more)
 
 ---
 
-## Screenshots
-
-> _Dashboard, work-order form and catalog dialogs._
-
-<!-- Add images here, e.g.:
-![Dashboard](docs/dashboard.png)
-![Work order](docs/work-order.png)
--->
-
----
-
 <sub>Personal, extracurricular project delivered to a private business. Not affiliated with any institution.</sub>
