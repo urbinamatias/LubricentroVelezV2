@@ -25,7 +25,14 @@ namespace LubricentroVelezV2.Forms
 
         private async void frmAditivos_Load(object sender, EventArgs e)
         {
-            await LoadAditivosAsync();
+            try
+            {
+                await LoadAditivosAsync();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error inesperado: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private async Task LoadAditivosAsync()
         {
@@ -39,11 +46,18 @@ namespace LubricentroVelezV2.Forms
 
         private async void btnAñadir_Click(object sender, EventArgs e)
         {
+            try
             {
                 using var frm = new frmEditarElemento(_service, "Aditivo");
                 if (frm.ShowDialog() == DialogResult.OK)
+                {
                     await LoadAditivosAsync();
                     DataChanged?.Invoke(this, EventArgs.Empty);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error inesperado: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -54,10 +68,19 @@ namespace LubricentroVelezV2.Forms
             var seleccionado = dgvAditivos.CurrentRow.DataBoundItem as Aditivos;
             if (seleccionado == null) return;
 
-            using var frm = new frmEditarElemento(_service, "Aditivo", seleccionado);
-            if (frm.ShowDialog() == DialogResult.OK)
-                await LoadAditivosAsync();
-                DataChanged?.Invoke(this, EventArgs.Empty);
+            try
+            {
+                using var frm = new frmEditarElemento(_service, "Aditivo", seleccionado);
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                    await LoadAditivosAsync();
+                    DataChanged?.Invoke(this, EventArgs.Empty);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error inesperado: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private async void btnEliminar_Click(object sender, EventArgs e)

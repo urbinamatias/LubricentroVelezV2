@@ -25,7 +25,14 @@ namespace LubricentroVelezV2.Forms
 
         private async void frmAceites_Load(object sender, EventArgs e)
         {
-            await LoadAceitesAsync();
+            try
+            {
+                await LoadAceitesAsync();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error inesperado: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private async Task LoadAceitesAsync()
         {
@@ -39,10 +46,19 @@ namespace LubricentroVelezV2.Forms
 
         private async void btnAñadir_Click(object sender, EventArgs e)
         {
-            using var frm = new frmEditarElemento(_service, "Aceite");
-            if (frm.ShowDialog() == DialogResult.OK)
-                await LoadAceitesAsync();
-                DataChanged?.Invoke(this, EventArgs.Empty);
+            try
+            {
+                using var frm = new frmEditarElemento(_service, "Aceite");
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                    await LoadAceitesAsync();
+                    DataChanged?.Invoke(this, EventArgs.Empty);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error inesperado: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private async void btnEditar_Click(object sender, EventArgs e)
         {
@@ -51,10 +67,19 @@ namespace LubricentroVelezV2.Forms
             var seleccionado = dgvAceites.CurrentRow.DataBoundItem as Aceites;
             if (seleccionado == null) return;
 
-            using var frm = new frmEditarElemento(_service, "Aceite", seleccionado);
-            if (frm.ShowDialog() == DialogResult.OK)
-                await LoadAceitesAsync();
-                DataChanged?.Invoke(this, EventArgs.Empty);
+            try
+            {
+                using var frm = new frmEditarElemento(_service, "Aceite", seleccionado);
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                    await LoadAceitesAsync();
+                    DataChanged?.Invoke(this, EventArgs.Empty);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error inesperado: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private async void btnEliminar_Click(object sender, EventArgs e)
         {

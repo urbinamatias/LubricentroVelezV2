@@ -59,5 +59,40 @@ namespace LubricentroVelezV2.Properties {
                 resourceCulture = value;
             }
         }
+
+        internal static global::System.Drawing.Bitmap editar_aceite {
+            get {
+                object obj = ResourceManager.GetObject("editar_aceite", resourceCulture);
+                return ((global::System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        internal static global::System.Drawing.Bitmap agregar_aceite {
+            get {
+                object obj = ResourceManager.GetObject("agregar_aceite", resourceCulture);
+                return ((global::System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        internal static global::System.Drawing.Bitmap eliminar_aceite {
+            get {
+                object obj = ResourceManager.GetObject("eliminar_aceite", resourceCulture);
+                return ((global::System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        internal static global::System.Drawing.Bitmap confirmar {
+            get {
+                object obj = ResourceManager.GetObject("confirmar", resourceCulture);
+                return ((global::System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        internal static global::System.Drawing.Bitmap contactar {
+            get {
+                object obj = ResourceManager.GetObject("contactar", resourceCulture);
+                return ((global::System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

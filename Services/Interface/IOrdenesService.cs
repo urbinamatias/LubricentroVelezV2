@@ -26,5 +26,6 @@ namespace LubricentroVelezV2.Services.Interface
         Task<OrdenTrabajoDetailsDTO> GetOrderDetailsByIdAsync(int idOt);
         Task<int> AddOrdenTrabajoAsync(OrdenTrabajoDetailsDTO ordenDTO);
         Task UpdateOrdenTrabajoAsync(OrdenTrabajoDetailsDTO ordenDTO);
+        Task DeleteOrdenTrabajoAsync(int idOt);
     }
 }

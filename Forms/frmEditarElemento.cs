@@ -68,36 +68,47 @@ namespace LubricentroVelezV2.Forms
                 return;
             }
 
-            if (_tipo == "Aceite")
+            try
             {
-                var aceite = _esEdicion && _elemento is Aceites existente
-                    ? existente
-                    : new Aceites();
+                if (_tipo == "Aceite")
+                {
+                    var aceite = _esEdicion && _elemento is Aceites existente
+                        ? existente
+                        : new Aceites();
 
-                aceite.Nombre = txtCampo1.Text.Trim();
-                aceite.Marca = txtCampo2.Text.Trim();
+                    aceite.Nombre = txtCampo1.Text.Trim();
+                    aceite.Marca = txtCampo2.Text.Trim();
 
-                if (_esEdicion)
-                    await _service.UpdateAceiteAsync(aceite);
+                    if (_esEdicion)
+                        await _service.UpdateAceiteAsync(aceite);
+                    else
+                        await _service.AddAceiteAsync(aceite);
+                }
                 else
-                    await _service.AddAceiteAsync(aceite);
+                {
+                    var aditivo = _esEdicion && _elemento is Aditivos existente
+                        ? existente
+                        : new Aditivos();
+
+                    aditivo.Nombre = txtCampo1.Text.Trim();
+
+                    if (_esEdicion)
+                        await _service.UpdateAditivoAsync(aditivo);
+                    else
+                        await _service.AddAditivoAsync(aditivo);
+                }
+
+                DialogResult = DialogResult.OK;
+                Close();
             }
-            else
+            catch (InvalidOperationException ex)
             {
-                var aditivo = _esEdicion && _elemento is Aditivos existente
-                    ? existente
-                    : new Aditivos();
-
-                aditivo.Nombre = txtCampo1.Text.Trim();
-
-                if (_esEdicion)
-                    await _service.UpdateAditivoAsync(aditivo);
-                else
-                    await _service.AddAditivoAsync(aditivo);
+                MessageBox.Show(ex.Message, "No se puede guardar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-
-            DialogResult = DialogResult.OK;
-            Close();
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error inesperado: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void btnCancelar_Click(object sender, EventArgs e)
         {

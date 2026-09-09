@@ -11,7 +11,6 @@ namespace LubricentroVelezV2.Repositories.Interface
     public interface IOrdenesRepository
     {
         Task<List<OrdenesTrabajoDTO>> FillGridAsync();
-        Task<List<OrdenesTrabajos>> GetAllAsync();
         Task<List<Aceites>> GetAceitesAsync();
         Task<List<Aditivos>> GetAditivosAsync();
         Task AddAceiteAsync(Aceites aceite);
@@ -24,5 +23,6 @@ namespace LubricentroVelezV2.Repositories.Interface
         Task<OrdenTrabajoDetailsDTO> GetOrderDetailsByIdAsync(int idOt);
         Task<int> AddOrdenTrabajoAsync(OrdenTrabajoDetailsDTO ordenDTO);
         Task UpdateOrdenTrabajoAsync(OrdenTrabajoDetailsDTO ordenDTO);
+        Task DeleteOrdenTrabajoAsync(int idOt);
     }
 }

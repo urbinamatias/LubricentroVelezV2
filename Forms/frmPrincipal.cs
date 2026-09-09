@@ -15,6 +15,9 @@ namespace LubricentroVelezV2
         private BindingSource _bindingSource = new BindingSource();
         private const string placeholder = "Patente...";
         private ListSortDirection _lastOrderDirection = ListSortDirection.Ascending;
+        private int _scrollIndex = 0;
+        private int _selectedRowIndex = -1;
+        private bool _ignorandoTextChanged = false;
 
         public frmPrincipal(OrdenesService service)
         {
@@ -47,13 +50,15 @@ namespace LubricentroVelezV2
             this.Cursor = Cursors.WaitCursor;
             _ordenes = await _service.FillGridAsync();
             _bindingSource.DataSource = _ordenes;
-            dgvOrdenes.Columns["IdOt"].HeaderText = "N� Orden";
+            dgvOrdenes.Columns["IdOt"].HeaderText = "Nº Orden";
             dgvOrdenes.Columns["Fecha"].HeaderText = "Fecha";
             dgvOrdenes.Columns["Patente"].HeaderText = "Patente";
             dgvOrdenes.Columns["Kilometraje"].HeaderText = "Kilometraje";
             dgvOrdenes.Columns["Propietario"].HeaderText = "Propietario";
             dgvOrdenes.Columns["Aceite"].HeaderText = "Aceite";
             dgvOrdenes.Columns["Aditivo"].HeaderText = "Aditivo";
+            dgvOrdenes.ClearSelection();
+            dgvOrdenes.CurrentCell = null;
             this.Cursor = Cursors.Default;
 
             SetPlaceHolder();
@@ -77,6 +82,18 @@ namespace LubricentroVelezV2
 
             AplicarOrden();
         }
+        private static object? SortKey(OrdenesTrabajoDTO o, string col) => col switch
+        {
+            nameof(OrdenesTrabajoDTO.IdOt) => o.IdOt,
+            nameof(OrdenesTrabajoDTO.Fecha) => o.Fecha,
+            nameof(OrdenesTrabajoDTO.Patente) => o.Patente,
+            nameof(OrdenesTrabajoDTO.Kilometraje) => o.Kilometraje,
+            nameof(OrdenesTrabajoDTO.Propietario) => o.Propietario,
+            nameof(OrdenesTrabajoDTO.Aceite) => o.Aceite,
+            nameof(OrdenesTrabajoDTO.Aditivo) => o.Aditivo,
+            _ => null
+        };
+
         private void AplicarOrden()
         {
             if (string.IsNullOrEmpty(_lastSortedColumn))
@@ -86,11 +103,11 @@ namespace LubricentroVelezV2
 
             if (_lastOrderDirection == ListSortDirection.Ascending)
                 _bindingSource.DataSource = listaActual
-                    .OrderBy(o => o.GetType().GetProperty(_lastSortedColumn)?.GetValue(o))
+                    .OrderBy(o => SortKey(o, _lastSortedColumn))
                     .ToList();
             else
                 _bindingSource.DataSource = listaActual
-                    .OrderByDescending(o => o.GetType().GetProperty(_lastSortedColumn)?.GetValue(o))
+                    .OrderByDescending(o => SortKey(o, _lastSortedColumn))
                     .ToList();
         }
 
@@ -106,21 +123,24 @@ namespace LubricentroVelezV2
         {
             if (txtBuscar.Text == placeholder)
             {
+                _ignorandoTextChanged = true;
+
                 txtBuscar.Text = "";
                 txtBuscar.ForeColor = Color.Black;
+
+                _ignorandoTextChanged = false;
             }
         }
         private void txtBuscar_LostFocus(object? sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtBuscar.Text))
             {
+                _ignorandoTextChanged = true;
+
                 txtBuscar.ForeColor = Color.Gray;
                 txtBuscar.Text = placeholder;
 
-                _bindingSource.DataSource = _ordenes;
-
-                if (!string.IsNullOrEmpty(_lastSortedColumn))
-                    AplicarOrden();
+                _ignorandoTextChanged = false;
             }
         }
         private void txtBuscar_KeyPress(object? sender, KeyPressEventArgs e)
@@ -130,27 +150,72 @@ namespace LubricentroVelezV2
         }
         private void txtBuscar_TextChanged(object? sender, EventArgs e)
         {
-            if (txtBuscar.ForeColor == Color.Gray || string.IsNullOrWhiteSpace(txtBuscar.Text) || txtBuscar.Text == placeholder)
+            if (_ignorandoTextChanged)
+                return;
+
+            bool sinTexto =
+                txtBuscar.ForeColor == Color.Gray ||
+                string.IsNullOrWhiteSpace(txtBuscar.Text) ||
+                txtBuscar.Text == placeholder;
+
+            if (sinTexto)
             {
                 if (_bindingSource.DataSource != _ordenes)
                     _bindingSource.DataSource = _ordenes;
+
                 if (!string.IsNullOrEmpty(_lastSortedColumn))
                     AplicarOrden();
+
+                // Restaurar scroll y selección (tu lógica existente)
+                try
+                {
+                    if (_scrollIndex >= 0 && _scrollIndex < dgvOrdenes.Rows.Count)
+                        dgvOrdenes.FirstDisplayedScrollingRowIndex = _scrollIndex;
+
+                    if (_selectedRowIndex >= 0 && _selectedRowIndex < dgvOrdenes.Rows.Count)
+                    {
+                        dgvOrdenes.ClearSelection();
+                        dgvOrdenes.Rows[_selectedRowIndex].Selected = true;
+                        dgvOrdenes.CurrentCell = dgvOrdenes.Rows[_selectedRowIndex].Cells[0];
+                    }
+                }
+                catch { }
 
                 return;
             }
 
+            if (_bindingSource.DataSource == _ordenes && dgvOrdenes.Rows.Count > 0)
+            {
+                _scrollIndex = dgvOrdenes.FirstDisplayedScrollingRowIndex;
+                _selectedRowIndex = dgvOrdenes.CurrentCell?.RowIndex ?? -1;
+            }
+
             string texto = txtBuscar.Text.Trim().ToUpper();
 
+            // --- NUEVA LÓGICA DE FILTRADO ESCALONADO ---
+
+            // 1. Intentamos filtrar por Patente
             var filtradas = _ordenes
-                .Where(o => !string.IsNullOrEmpty(o.Patente) && o.Patente.ToUpper().Contains(texto))
-                .OrderByDescending(o => o.IdOt)
+                .Where(o => !string.IsNullOrEmpty(o.Patente) &&
+                            o.Patente.ToUpper().Contains(texto))
                 .ToList();
 
-            _bindingSource.DataSource = filtradas;
+            // 2. Si no se encontraron patentes, buscamos por Propietario
+            if (filtradas.Count == 0)
+            {
+                filtradas = _ordenes
+                    .Where(o => !string.IsNullOrEmpty(o.Propietario) &&
+                                o.Propietario.ToUpper().Contains(texto))
+                    .ToList();
+            }
+
+            // Aplicar el resultado al BindingSource
+            _bindingSource.DataSource = filtradas.OrderByDescending(o => o.IdOt).ToList();
+
             if (!string.IsNullOrEmpty(_lastSortedColumn))
                 AplicarOrden();
         }
+
         private void btnNuevaOrden_Click(object? sender, EventArgs e)
         {
             // Abre frmOrdenTrabajo en modo Nueva Orden

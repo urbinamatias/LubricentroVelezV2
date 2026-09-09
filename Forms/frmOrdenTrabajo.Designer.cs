@@ -44,6 +44,7 @@
             btnCancelar = new Button();
             btnEditar = new Button();
             btnContactar = new Button();
+            btnEliminar = new Button();
             grpVehiculo.SuspendLayout();
             grpAceyFil.SuspendLayout();
             SuspendLayout();
@@ -60,7 +61,7 @@
             grpVehiculo.Controls.Add(lblPropietario);
             grpVehiculo.Controls.Add(txtPatente);
             grpVehiculo.Controls.Add(lblPatente);
-            grpVehiculo.Font = new Font("Lucida Console", 12F, FontStyle.Bold);
+            grpVehiculo.Font = new Font("Lucida Console", 12F, FontStyle.Bold, GraphicsUnit.Point);
             grpVehiculo.Location = new Point(12, 12);
             grpVehiculo.Name = "grpVehiculo";
             grpVehiculo.Size = new Size(869, 100);
@@ -72,7 +73,7 @@
             // 
             txtModelo.CharacterCasing = CharacterCasing.Upper;
             txtModelo.Cursor = Cursors.IBeam;
-            txtModelo.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            txtModelo.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point);
             txtModelo.Location = new Point(519, 60);
             txtModelo.Name = "txtModelo";
             txtModelo.Size = new Size(91, 27);
@@ -82,7 +83,7 @@
             // lblModelo
             // 
             lblModelo.AutoSize = true;
-            lblModelo.Font = new Font("Lucida Console", 10F, FontStyle.Bold);
+            lblModelo.Font = new Font("Lucida Console", 10F, FontStyle.Bold, GraphicsUnit.Point);
             lblModelo.Location = new Point(452, 66);
             lblModelo.Name = "lblModelo";
             lblModelo.Size = new Size(61, 14);
@@ -93,7 +94,7 @@
             // 
             txtAutomovil.CharacterCasing = CharacterCasing.Upper;
             txtAutomovil.Cursor = Cursors.IBeam;
-            txtAutomovil.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            txtAutomovil.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point);
             txtAutomovil.Location = new Point(217, 60);
             txtAutomovil.Name = "txtAutomovil";
             txtAutomovil.Size = new Size(217, 27);
@@ -103,7 +104,7 @@
             // lblAutomovil
             // 
             lblAutomovil.AutoSize = true;
-            lblAutomovil.Font = new Font("Lucida Console", 10F, FontStyle.Bold);
+            lblAutomovil.Font = new Font("Lucida Console", 10F, FontStyle.Bold, GraphicsUnit.Point);
             lblAutomovil.Location = new Point(123, 66);
             lblAutomovil.Name = "lblAutomovil";
             lblAutomovil.Size = new Size(88, 14);
@@ -113,7 +114,7 @@
             // txtTelefono
             // 
             txtTelefono.Cursor = Cursors.IBeam;
-            txtTelefono.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            txtTelefono.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point);
             txtTelefono.Location = new Point(683, 21);
             txtTelefono.Name = "txtTelefono";
             txtTelefono.Size = new Size(140, 27);
@@ -123,7 +124,7 @@
             // lblTelefono
             // 
             lblTelefono.AutoSize = true;
-            lblTelefono.Font = new Font("Lucida Console", 10F, FontStyle.Bold);
+            lblTelefono.Font = new Font("Lucida Console", 10F, FontStyle.Bold, GraphicsUnit.Point);
             lblTelefono.Location = new Point(598, 28);
             lblTelefono.Name = "lblTelefono";
             lblTelefono.Size = new Size(79, 14);
@@ -134,7 +135,7 @@
             // 
             txtPropietario.CharacterCasing = CharacterCasing.Upper;
             txtPropietario.Cursor = Cursors.IBeam;
-            txtPropietario.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            txtPropietario.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point);
             txtPropietario.Location = new Point(366, 22);
             txtPropietario.Name = "txtPropietario";
             txtPropietario.Size = new Size(217, 27);
@@ -144,7 +145,7 @@
             // lblPropietario
             // 
             lblPropietario.AutoSize = true;
-            lblPropietario.Font = new Font("Lucida Console", 10F, FontStyle.Bold);
+            lblPropietario.Font = new Font("Lucida Console", 10F, FontStyle.Bold, GraphicsUnit.Point);
             lblPropietario.Location = new Point(254, 28);
             lblPropietario.Name = "lblPropietario";
             lblPropietario.Size = new Size(106, 14);
@@ -155,7 +156,7 @@
             // 
             txtPatente.CharacterCasing = CharacterCasing.Upper;
             txtPatente.Cursor = Cursors.IBeam;
-            txtPatente.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtPatente.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point);
             txtPatente.Location = new Point(123, 22);
             txtPatente.Name = "txtPatente";
             txtPatente.Size = new Size(116, 27);
@@ -165,7 +166,7 @@
             // lblPatente
             // 
             lblPatente.AutoSize = true;
-            lblPatente.Font = new Font("Lucida Console", 10F, FontStyle.Bold);
+            lblPatente.Font = new Font("Lucida Console", 10F, FontStyle.Bold, GraphicsUnit.Point);
             lblPatente.Location = new Point(47, 28);
             lblPatente.Name = "lblPatente";
             lblPatente.Size = new Size(70, 14);
@@ -184,7 +185,7 @@
             grpAceyFil.Controls.Add(lblAceite);
             grpAceyFil.Controls.Add(txtKilometraje);
             grpAceyFil.Controls.Add(lblKmActual);
-            grpAceyFil.Font = new Font("Lucida Console", 12F, FontStyle.Bold);
+            grpAceyFil.Font = new Font("Lucida Console", 12F, FontStyle.Bold, GraphicsUnit.Point);
             grpAceyFil.Location = new Point(12, 118);
             grpAceyFil.Name = "grpAceyFil";
             grpAceyFil.Size = new Size(869, 141);
@@ -195,7 +196,7 @@
             // chkFHabi
             // 
             chkFHabi.AutoSize = true;
-            chkFHabi.Font = new Font("Lucida Console", 13F, FontStyle.Bold);
+            chkFHabi.Font = new Font("Lucida Console", 13F, FontStyle.Bold, GraphicsUnit.Point);
             chkFHabi.Location = new Point(584, 92);
             chkFHabi.Name = "chkFHabi";
             chkFHabi.Size = new Size(267, 22);
@@ -206,7 +207,7 @@
             // chkFCom
             // 
             chkFCom.AutoSize = true;
-            chkFCom.Font = new Font("Lucida Console", 13F, FontStyle.Bold);
+            chkFCom.Font = new Font("Lucida Console", 13F, FontStyle.Bold, GraphicsUnit.Point);
             chkFCom.Location = new Point(584, 42);
             chkFCom.Name = "chkFCom";
             chkFCom.Size = new Size(279, 22);
@@ -217,7 +218,7 @@
             // chkFAire
             // 
             chkFAire.AutoSize = true;
-            chkFAire.Font = new Font("Lucida Console", 13F, FontStyle.Bold);
+            chkFAire.Font = new Font("Lucida Console", 13F, FontStyle.Bold, GraphicsUnit.Point);
             chkFAire.Location = new Point(359, 92);
             chkFAire.Name = "chkFAire";
             chkFAire.Size = new Size(195, 22);
@@ -228,7 +229,7 @@
             // chkFAceite
             // 
             chkFAceite.AutoSize = true;
-            chkFAceite.Font = new Font("Lucida Console", 13F, FontStyle.Bold);
+            chkFAceite.Font = new Font("Lucida Console", 13F, FontStyle.Bold, GraphicsUnit.Point);
             chkFAceite.Location = new Point(359, 42);
             chkFAceite.Name = "chkFAceite";
             chkFAceite.Size = new Size(219, 22);
@@ -238,7 +239,7 @@
             // 
             // cmbAditivos
             // 
-            cmbAditivos.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            cmbAditivos.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point);
             cmbAditivos.FormattingEnabled = true;
             cmbAditivos.Location = new Point(97, 94);
             cmbAditivos.Name = "cmbAditivos";
@@ -248,7 +249,7 @@
             // lblAditivo
             // 
             lblAditivo.AutoSize = true;
-            lblAditivo.Font = new Font("Lucida Console", 10F, FontStyle.Bold);
+            lblAditivo.Font = new Font("Lucida Console", 10F, FontStyle.Bold, GraphicsUnit.Point);
             lblAditivo.Location = new Point(21, 100);
             lblAditivo.Name = "lblAditivo";
             lblAditivo.Size = new Size(70, 14);
@@ -257,7 +258,7 @@
             // 
             // cmbAceites
             // 
-            cmbAceites.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            cmbAceites.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point);
             cmbAceites.FormattingEnabled = true;
             cmbAceites.Location = new Point(97, 58);
             cmbAceites.MaxDropDownItems = 10;
@@ -268,7 +269,7 @@
             // lblAceite
             // 
             lblAceite.AutoSize = true;
-            lblAceite.Font = new Font("Lucida Console", 10F, FontStyle.Bold);
+            lblAceite.Font = new Font("Lucida Console", 10F, FontStyle.Bold, GraphicsUnit.Point);
             lblAceite.Location = new Point(21, 64);
             lblAceite.Name = "lblAceite";
             lblAceite.Size = new Size(61, 14);
@@ -278,7 +279,7 @@
             // txtKilometraje
             // 
             txtKilometraje.Cursor = Cursors.IBeam;
-            txtKilometraje.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            txtKilometraje.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point);
             txtKilometraje.Location = new Point(196, 24);
             txtKilometraje.Name = "txtKilometraje";
             txtKilometraje.Size = new Size(116, 27);
@@ -288,7 +289,7 @@
             // lblKmActual
             // 
             lblKmActual.AutoSize = true;
-            lblKmActual.Font = new Font("Lucida Console", 10F, FontStyle.Bold);
+            lblKmActual.Font = new Font("Lucida Console", 10F, FontStyle.Bold, GraphicsUnit.Point);
             lblKmActual.Location = new Point(21, 30);
             lblKmActual.Name = "lblKmActual";
             lblKmActual.Size = new Size(169, 14);
@@ -298,7 +299,7 @@
             // lblObservaciones
             // 
             lblObservaciones.AutoSize = true;
-            lblObservaciones.Font = new Font("Lucida Console", 12F, FontStyle.Bold);
+            lblObservaciones.Font = new Font("Lucida Console", 12F, FontStyle.Bold, GraphicsUnit.Point);
             lblObservaciones.Location = new Point(12, 272);
             lblObservaciones.Name = "lblObservaciones";
             lblObservaciones.Size = new Size(161, 16);
@@ -308,7 +309,7 @@
             // txtObservaciones
             // 
             txtObservaciones.Cursor = Cursors.IBeam;
-            txtObservaciones.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            txtObservaciones.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point);
             txtObservaciones.Location = new Point(179, 270);
             txtObservaciones.Name = "txtObservaciones";
             txtObservaciones.Size = new Size(702, 27);
@@ -318,7 +319,7 @@
             // 
             btnGuardar.BackColor = SystemColors.ButtonFace;
             btnGuardar.Cursor = Cursors.Hand;
-            btnGuardar.Font = new Font("Lucida Console", 11F);
+            btnGuardar.Font = new Font("Lucida Console", 11F, FontStyle.Regular, GraphicsUnit.Point);
             btnGuardar.Image = (Image)resources.GetObject("btnGuardar.Image");
             btnGuardar.ImageAlign = ContentAlignment.MiddleLeft;
             btnGuardar.Location = new Point(12, 302);
@@ -333,7 +334,7 @@
             // 
             btnCancelar.BackColor = SystemColors.ButtonFace;
             btnCancelar.Cursor = Cursors.Hand;
-            btnCancelar.Font = new Font("Lucida Console", 11F);
+            btnCancelar.Font = new Font("Lucida Console", 11F, FontStyle.Regular, GraphicsUnit.Point);
             btnCancelar.Image = (Image)resources.GetObject("btnCancelar.Image");
             btnCancelar.ImageAlign = ContentAlignment.MiddleLeft;
             btnCancelar.Location = new Point(135, 302);
@@ -348,7 +349,7 @@
             // 
             btnEditar.BackColor = SystemColors.ButtonFace;
             btnEditar.Cursor = Cursors.Hand;
-            btnEditar.Font = new Font("Lucida Console", 11F);
+            btnEditar.Font = new Font("Lucida Console", 11F, FontStyle.Regular, GraphicsUnit.Point);
             btnEditar.Image = (Image)resources.GetObject("btnEditar.Image");
             btnEditar.ImageAlign = ContentAlignment.MiddleLeft;
             btnEditar.Location = new Point(258, 302);
@@ -363,22 +364,38 @@
             // 
             btnContactar.BackColor = SystemColors.ButtonFace;
             btnContactar.Cursor = Cursors.Hand;
-            btnContactar.Font = new Font("Lucida Console", 11F);
+            btnContactar.Font = new Font("Lucida Console", 11F, FontStyle.Regular, GraphicsUnit.Point);
             btnContactar.Image = (Image)resources.GetObject("btnContactar.Image");
             btnContactar.ImageAlign = ContentAlignment.MiddleLeft;
             btnContactar.Location = new Point(748, 302);
             btnContactar.Name = "btnContactar";
             btnContactar.Size = new Size(133, 40);
-            btnContactar.TabIndex = 6;
+            btnContactar.TabIndex = 7;
             btnContactar.Text = "Contactar";
             btnContactar.TextAlign = ContentAlignment.MiddleRight;
             btnContactar.UseVisualStyleBackColor = false;
+            // 
+            // btnEliminar
+            // 
+            btnEliminar.BackColor = SystemColors.ButtonFace;
+            btnEliminar.Cursor = Cursors.Hand;
+            btnEliminar.Font = new Font("Lucida Console", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            btnEliminar.Image = Properties.Resources.eliminar_aceite;
+            btnEliminar.ImageAlign = ContentAlignment.MiddleLeft;
+            btnEliminar.Location = new Point(378, 302);
+            btnEliminar.Name = "btnEliminar";
+            btnEliminar.Size = new Size(117, 40);
+            btnEliminar.TabIndex = 6;
+            btnEliminar.Text = "Eliminar";
+            btnEliminar.TextAlign = ContentAlignment.MiddleRight;
+            btnEliminar.UseVisualStyleBackColor = false;
             // 
             // frmOrdenTrabajo
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(893, 354);
+            Controls.Add(btnEliminar);
             Controls.Add(btnContactar);
             Controls.Add(btnEditar);
             Controls.Add(btnCancelar);
@@ -431,5 +448,6 @@
         private Button btnCancelar;
         private Button btnEditar;
         private Button btnContactar;
+        private Button btnEliminar;
     }
 }

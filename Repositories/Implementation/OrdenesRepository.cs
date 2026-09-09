@@ -1,4 +1,4 @@
-﻿using LubricentroVelezV2.DTOs;
+using LubricentroVelezV2.DTOs;
 using LubricentroVelezV2.Models;
 using LubricentroVelezV2.Repositories.Interface;
 using Microsoft.Data.SqlClient;
@@ -13,14 +13,15 @@ namespace LubricentroVelezV2.Repositories.Implementation
 {
     public class OrdenesRepository : IOrdenesRepository
     {
-        private readonly OrdenesContext _context;
-        public OrdenesRepository(OrdenesContext context)
+        private readonly IDbContextFactory<OrdenesContext> _factory;
+        public OrdenesRepository(IDbContextFactory<OrdenesContext> factory)
         {
-            _context = context;
+            _factory = factory;
         }
         public async Task<List<OrdenesTrabajoDTO>> FillGridAsync()
         {
-            return await _context.OrdenesTrabajos
+            await using var context = _factory.CreateDbContext();
+            return await context.OrdenesTrabajos
                 .OrderByDescending(ot => ot.IdOt)
                 .Select(ot => new OrdenesTrabajoDTO
                 {
@@ -33,57 +34,58 @@ namespace LubricentroVelezV2.Repositories.Implementation
                     Aditivo = ot.IdAditivoNavigation.Nombre
                 }).ToListAsync();
         }
-        public Task<List<OrdenesTrabajos>> GetAllAsync()
-        {
-            throw new NotImplementedException();
-        }
         public async Task<List<Aceites>> GetAceitesAsync()
         {
-            return await _context.Aceites.OrderBy(a => a.Marca).ThenBy(a => a.Nombre).ToListAsync();
+            await using var context = _factory.CreateDbContext();
+            return await context.Aceites.OrderBy(a => a.Marca).ThenBy(a => a.Nombre).ToListAsync();
         }
         public async Task<List<Aditivos>> GetAditivosAsync()
         {
-            return await _context.Aditivos.OrderBy(a => a.Nombre).ToListAsync();
+            await using var context = _factory.CreateDbContext();
+            return await context.Aditivos.OrderBy(a => a.Nombre).ToListAsync();
         }
 
         public async Task AddAceiteAsync(Aceites aceite)
         {
-            await _context.Aceites.AddAsync(aceite);
-            await _context.SaveChangesAsync();
+            await using var context = _factory.CreateDbContext();
+            await context.Aceites.AddAsync(aceite);
+            await context.SaveChangesAsync();
         }
 
         public async Task UpdateAceiteAsync(Aceites aceite)
         {
+            await using var context = _factory.CreateDbContext();
             try
             {
-                var existing = await _context.Aceites.FindAsync(aceite.IdAceite);
+                var existing = await context.Aceites.FindAsync(aceite.IdAceite);
                 if (existing == null) throw new InvalidOperationException("El aceite no existe.");
 
                 existing.Nombre = aceite.Nombre;
                 existing.Marca = aceite.Marca;
 
-                await _context.SaveChangesAsync();
+                await context.SaveChangesAsync();
             }
             catch (DbUpdateException)
             {
-                try { _context.ChangeTracker.Clear(); } catch { }
+                try { context.ChangeTracker.Clear(); } catch { }
                 throw;
             }
         }
 
         public async Task DeleteAceiteAsync(int id)
         {
+            await using var context = _factory.CreateDbContext();
             try
             {
-                var item = await _context.Aceites.FindAsync(id);
+                var item = await context.Aceites.FindAsync(id);
                 if (item == null) return;
 
-                _context.Aceites.Remove(item);
-                await _context.SaveChangesAsync();
+                context.Aceites.Remove(item);
+                await context.SaveChangesAsync();
             }
             catch (DbUpdateException ex)
             {
-                try { _context.ChangeTracker.Clear(); } catch {  }
+                try { context.ChangeTracker.Clear(); } catch {  }
 
                 var inner = ex.InnerException;
                 if (inner != null && inner.Message.Contains("REFERENCE constraint", StringComparison.OrdinalIgnoreCase))
@@ -97,40 +99,43 @@ namespace LubricentroVelezV2.Repositories.Implementation
 
         public async Task AddAditivoAsync(Aditivos aditivo)
         {
-            await _context.Aditivos.AddAsync(aditivo);
-            await _context.SaveChangesAsync();
+            await using var context = _factory.CreateDbContext();
+            await context.Aditivos.AddAsync(aditivo);
+            await context.SaveChangesAsync();
         }
 
         public async Task UpdateAditivoAsync(Aditivos aditivo)
         {
+            await using var context = _factory.CreateDbContext();
             try
             {
-                var existing = await _context.Aditivos.FindAsync(aditivo.IdAditivo);
+                var existing = await context.Aditivos.FindAsync(aditivo.IdAditivo);
                 if (existing == null) throw new InvalidOperationException("El aditivo no existe.");
 
                 existing.Nombre = aditivo.Nombre;
-                await _context.SaveChangesAsync();
+                await context.SaveChangesAsync();
             }
             catch (DbUpdateException)
             {
-                try { _context.ChangeTracker.Clear(); } catch { }
+                try { context.ChangeTracker.Clear(); } catch { }
                 throw;
             }
         }
 
         public async Task DeleteAditivoAsync(int id)
         {
+            await using var context = _factory.CreateDbContext();
             try
             {
-                var item = await _context.Aditivos.FindAsync(id);
+                var item = await context.Aditivos.FindAsync(id);
                 if (item == null) return;
 
-                _context.Aditivos.Remove(item);
-                await _context.SaveChangesAsync();
+                context.Aditivos.Remove(item);
+                await context.SaveChangesAsync();
             }
             catch (DbUpdateException ex)
             {
-                try { _context.ChangeTracker.Clear(); } catch { }
+                try { context.ChangeTracker.Clear(); } catch { }
 
                 var inner = ex.InnerException;
                 if (inner != null && inner.Message.Contains("REFERENCE constraint", StringComparison.OrdinalIgnoreCase))
@@ -144,8 +149,10 @@ namespace LubricentroVelezV2.Repositories.Implementation
         }
         public async Task<LastOrderDataDTO> GetLastOrderDataByPatenteAsync(string patente, CancellationToken cancellationToken = default)
         {
+            await using var context = _factory.CreateDbContext();
+
             // Busca la última orden de trabajo para esa patente
-            var lastOrder = await _context.OrdenesTrabajos
+            var lastOrder = await context.OrdenesTrabajos
                 .Where(ot => ot.IdAutoNavigation.Patente.ToUpper() == patente.ToUpper())
                 .OrderByDescending(ot => ot.Fecha) // Asume que la fecha es el mejor criterio para la "última" orden
                 .Include(ot => ot.IdAutoNavigation)
@@ -171,7 +178,8 @@ namespace LubricentroVelezV2.Repositories.Implementation
         // Obtener detalles completos de una orden por ID
         public async Task<OrdenTrabajoDetailsDTO> GetOrderDetailsByIdAsync(int idOt)
         {
-            var orden = await _context.OrdenesTrabajos
+            await using var context = _factory.CreateDbContext();
+            var orden = await context.OrdenesTrabajos
                 .Where(ot => ot.IdOt == idOt)
                 .Include(ot => ot.IdAutoNavigation)
                     .ThenInclude(auto => auto.IdPersonaNavigation)
@@ -203,45 +211,56 @@ namespace LubricentroVelezV2.Repositories.Implementation
         // Guardar (Add) una nueva Orden de Trabajo
         public async Task<int> AddOrdenTrabajoAsync(OrdenTrabajoDetailsDTO ordenDTO)
         {
-            // 1. Obtener o Crear Persona y Auto
-            int idPersona = await GetOrCreatePersonaAsync(ordenDTO.PropietarioNombre, ordenDTO.Telefono);
-            int idAuto = await GetOrCreateAutoAsync(ordenDTO.Patente, ordenDTO.Automovil, ordenDTO.Modelo, idPersona);
-
-            // 2. Crear la Orden de Trabajo
-            var nuevaOrden = new OrdenesTrabajos
+            await using var context = _factory.CreateDbContext();
+            await using var tx = await context.Database.BeginTransactionAsync();
+            try
             {
-                Fecha = DateTime.Now,
-                Kilometraje = ordenDTO.Kilometraje,
-                IdAceite = ordenDTO.IdAceite,
-                IdAditivo = ordenDTO.IdAditivo,
-                IdAuto = idAuto, // Usamos el ID del Auto obtenido/creado
-                FiltroAceite = ordenDTO.FiltroAceite ?? false,
-                FiltroAire = ordenDTO.FiltroAire ?? false,
-                FiltroCombustible = ordenDTO.FiltroCombustible ?? false,
-                FiltroAbitaculo = ordenDTO.FiltroAbitaculo ?? false,
-                Observaciones = ordenDTO.Observaciones,
-                DeleteLogico = false,
+                // 1. Obtener o Crear Persona y Auto
+                int idPersona = await GetOrCreatePersonaAsync(context, ordenDTO.PropietarioNombre, ordenDTO.Telefono);
+                int idAuto = await GetOrCreateAutoAsync(context, ordenDTO.Patente, ordenDTO.Automovil, ordenDTO.Modelo, idPersona);
 
-                // Valores por defecto para campos no utilizados en el formulario
-                FiltroHidraulico = false,
-                FiltroAireSecundario = false,
-                SecadorFrenos = false,
-                FiltroAgua = false,
-                TrampaAgua = false,
-                AditivoCaja = false,
-                AditivoDifTrasero = false,
-                AditivoDifDelantero = false,
-                AditivoCajaTransferencia = false,
-            };
+                // 2. Crear la Orden de Trabajo
+                var nuevaOrden = new OrdenesTrabajos
+                {
+                    Fecha = DateTime.Now,
+                    Kilometraje = ordenDTO.Kilometraje,
+                    IdAceite = ordenDTO.IdAceite,
+                    IdAditivo = ordenDTO.IdAditivo,
+                    IdAuto = idAuto, // Usamos el ID del Auto obtenido/creado
+                    FiltroAceite = ordenDTO.FiltroAceite ?? false,
+                    FiltroAire = ordenDTO.FiltroAire ?? false,
+                    FiltroCombustible = ordenDTO.FiltroCombustible ?? false,
+                    FiltroAbitaculo = ordenDTO.FiltroAbitaculo ?? false,
+                    Observaciones = ordenDTO.Observaciones,
+                    DeleteLogico = false,
 
-            // Rellenar con valores predeterminados (como string vacío) para campos string no utilizados si son NOT NULL en BD,
-            // pero como son NULLABLE, podemos dejarlos en NULL (o string.Empty si prefieres). 
-            // Para este ejemplo los dejaremos en NULL, excepto los booleanos que deben ser 'false'.
+                    // Valores por defecto para campos no utilizados en el formulario
+                    FiltroHidraulico = false,
+                    FiltroAireSecundario = false,
+                    SecadorFrenos = false,
+                    FiltroAgua = false,
+                    TrampaAgua = false,
+                    AditivoCaja = false,
+                    AditivoDifTrasero = false,
+                    AditivoDifDelantero = false,
+                    AditivoCajaTransferencia = false,
+                };
 
-            await _context.OrdenesTrabajos.AddAsync(nuevaOrden);
-            await _context.SaveChangesAsync();
+                // Rellenar con valores predeterminados (como string vacío) para campos string no utilizados si son NOT NULL en BD,
+                // pero como son NULLABLE, podemos dejarlos en NULL (o string.Empty si prefieres).
+                // Para este ejemplo los dejaremos en NULL, excepto los booleanos que deben ser 'false'.
 
-            return nuevaOrden.IdOt;
+                await context.OrdenesTrabajos.AddAsync(nuevaOrden);
+                await context.SaveChangesAsync();
+
+                await tx.CommitAsync();
+
+                return nuevaOrden.IdOt;
+            }
+            catch
+            {
+                throw;
+            }
         }
 
         // Actualizar (Update) una Orden de Trabajo
@@ -249,41 +268,79 @@ namespace LubricentroVelezV2.Repositories.Implementation
         {
             if (!ordenDTO.IdOt.HasValue) throw new InvalidOperationException("ID de Orden no especificado para la edición.");
 
-            var ordenExistente = await _context.OrdenesTrabajos
-                .Where(ot => ot.IdOt == ordenDTO.IdOt)
-                .Include(ot => ot.IdAutoNavigation)
-                .ThenInclude(auto => auto.IdPersonaNavigation)
-                .FirstOrDefaultAsync();
+            await using var context = _factory.CreateDbContext();
+            await using var tx = await context.Database.BeginTransactionAsync();
+            try
+            {
+                var ordenExistente = await context.OrdenesTrabajos
+                    .Where(ot => ot.IdOt == ordenDTO.IdOt)
+                    .Include(ot => ot.IdAutoNavigation)
+                    .ThenInclude(auto => auto.IdPersonaNavigation)
+                    .FirstOrDefaultAsync();
 
-            if (ordenExistente == null) throw new KeyNotFoundException("Orden de Trabajo no encontrada.");
+                if (ordenExistente == null) throw new KeyNotFoundException("Orden de Trabajo no encontrada.");
 
-            // 1. Obtener o Crear Persona y Auto (Puede que el propietario/teléfono/vehículo haya cambiado)
-            int idPersona = await GetOrCreatePersonaAsync(ordenDTO.PropietarioNombre, ordenDTO.Telefono);
-            int idAuto = await GetOrCreateAutoAsync(ordenDTO.Patente, ordenDTO.Automovil, ordenDTO.Modelo, idPersona);
+                // 1. Obtener o Crear Persona y Auto (Puede que el propietario/teléfono/vehículo haya cambiado)
+                int idPersona = await GetOrCreatePersonaAsync(context, ordenDTO.PropietarioNombre, ordenDTO.Telefono);
+                int idAuto = await GetOrCreateAutoAsync(context, ordenDTO.Patente, ordenDTO.Automovil, ordenDTO.Modelo, idPersona);
 
-            // 2. Actualizar la Orden
-            ordenExistente.Kilometraje = ordenDTO.Kilometraje;
-            ordenExistente.IdAceite = ordenDTO.IdAceite;
-            ordenExistente.IdAditivo = ordenDTO.IdAditivo;
-            ordenExistente.IdAuto = idAuto; // Posiblemente cambió
-            ordenExistente.FiltroAceite = ordenDTO.FiltroAceite ?? false;
-            ordenExistente.FiltroAire = ordenDTO.FiltroAire ?? false;
-            ordenExistente.FiltroCombustible = ordenDTO.FiltroCombustible ?? false;
-            ordenExistente.FiltroAbitaculo = ordenDTO.FiltroAbitaculo ?? false;
-            ordenExistente.Observaciones = ordenDTO.Observaciones;
+                // 2. Actualizar la Orden
+                ordenExistente.Kilometraje = ordenDTO.Kilometraje;
+                ordenExistente.IdAceite = ordenDTO.IdAceite;
+                ordenExistente.IdAditivo = ordenDTO.IdAditivo;
+                ordenExistente.IdAuto = idAuto; // Posiblemente cambió
+                ordenExistente.FiltroAceite = ordenDTO.FiltroAceite ?? false;
+                ordenExistente.FiltroAire = ordenDTO.FiltroAire ?? false;
+                ordenExistente.FiltroCombustible = ordenDTO.FiltroCombustible ?? false;
+                ordenExistente.FiltroAbitaculo = ordenDTO.FiltroAbitaculo ?? false;
+                ordenExistente.Observaciones = ordenDTO.Observaciones;
 
-            // La fecha no se actualiza, es la fecha de creación.
-            // Los campos no utilizados se mantienen como están (NULL o el valor por defecto/anterior).
+                // La fecha no se actualiza, es la fecha de creación.
+                // Los campos no utilizados se mantienen como están (NULL o el valor por defecto/anterior).
 
-            await _context.SaveChangesAsync();
+                await context.SaveChangesAsync();
+
+                await tx.CommitAsync();
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        public async Task DeleteOrdenTrabajoAsync(int idOt)
+        {
+            await using var context = _factory.CreateDbContext();
+            try
+            {
+                var orden = await context.OrdenesTrabajos.FindAsync(idOt);
+                if (orden == null) throw new InvalidOperationException("La orden de trabajo no existe.");
+
+                var hijos = context.FiltrosXots.Where(f => f.IdOt == idOt);
+                context.FiltrosXots.RemoveRange(hijos);
+                context.OrdenesTrabajos.Remove(orden);
+                await context.SaveChangesAsync();
+            }
+            catch (DbUpdateException ex)
+            {
+                try { context.ChangeTracker.Clear(); } catch { }
+
+                var inner = ex.InnerException;
+                if (inner != null && inner.Message.Contains("REFERENCE constraint", StringComparison.OrdinalIgnoreCase))
+                {
+                    throw new InvalidOperationException(
+                        "No se puede eliminar esta Orden de Trabajo porque tiene registros relacionados.");
+                }
+                throw;
+            }
         }
 
         // --- Métodos de ayuda (privados) para gestionar Persona y Auto ---
 
-        private async Task<int> GetOrCreatePersonaAsync(string nombre, string telefono)
+        private async Task<int> GetOrCreatePersonaAsync(OrdenesContext context, string nombre, string telefono)
         {
             // Intentamos buscar una persona existente por nombre y teléfono
-            var persona = await _context.Personas
+            var persona = await context.Personas
                 .FirstOrDefaultAsync(p => p.Nombre.ToUpper() == nombre.ToUpper() && p.Telefono == telefono);
 
             if (persona == null)
@@ -294,17 +351,17 @@ namespace LubricentroVelezV2.Repositories.Implementation
                     Nombre = nombre,
                     Telefono = telefono
                 };
-                await _context.Personas.AddAsync(persona);
-                await _context.SaveChangesAsync();
+                await context.Personas.AddAsync(persona);
+                await context.SaveChangesAsync();
             }
 
             return persona.IdPersona;
         }
 
-        private async Task<int> GetOrCreateAutoAsync(string patente, string vehiculo, int? año, int idPersona)
+        private async Task<int> GetOrCreateAutoAsync(OrdenesContext context, string patente, string vehiculo, int? año, int idPersona)
         {
             // Intentamos buscar un auto existente por patente
-            var auto = await _context.Autos
+            var auto = await context.Autos
                 .FirstOrDefaultAsync(a => a.Patente.ToUpper() == patente.ToUpper());
 
             if (auto == null)
@@ -317,7 +374,7 @@ namespace LubricentroVelezV2.Repositories.Implementation
                     Año = año,
                     IdPersona = idPersona
                 };
-                await _context.Autos.AddAsync(auto);
+                await context.Autos.AddAsync(auto);
             }
             else
             {
@@ -325,10 +382,10 @@ namespace LubricentroVelezV2.Repositories.Implementation
                 auto.Vehiculo = vehiculo;
                 auto.Año = año;
                 auto.IdPersona = idPersona;
-                _context.Autos.Update(auto);
+                context.Autos.Update(auto);
             }
 
-            await _context.SaveChangesAsync();
+            await context.SaveChangesAsync();
 
             return auto.IdAuto;
         }
