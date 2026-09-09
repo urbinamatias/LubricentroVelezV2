@@ -1,5 +1,7 @@
 # Lubricentro Vélez — Management System (v2)
 
+**English** · [Español](README.es.md)
+
 Desktop application built for a real automotive lubrication shop (*lubricentro*)
 to run its daily operations: customers and their vehicles, service work orders,
 and the catalog of oils, additives and filters used on each job.
