@@ -53,6 +53,7 @@ namespace LubricentroVelezV2.Forms
             this.btnCancelar.Click += (s, e) => this.Close();
             this.btnEditar.Click += btnEditar_Click;
             this.btnContactar.Click += btnContactar_Click;
+            this.btnEliminar.Click += btnEliminar_Click;
         }
 
         private void SetupForm(bool isNew)
@@ -66,6 +67,10 @@ namespace LubricentroVelezV2.Forms
                 btnCancelar.Enabled = true;
                 btnEditar.Visible = false;
                 btnContactar.Visible = false;
+                btnEliminar.Visible = false;
+                btnEliminar.Enabled = false;
+                chkFAceite.Checked = true;
+                chkFAire.Checked = true;
                 EnableControls(true);
             }
             else
@@ -78,6 +83,8 @@ namespace LubricentroVelezV2.Forms
                 btnEditar.Visible = true;
                 btnEditar.Enabled = true; // Habilitado
                 btnContactar.Visible = true;
+                btnEliminar.Visible = true;
+                btnEliminar.Enabled = true;
                 EnableControls(false); // Deshabilitado para solo ver
             }
         }
@@ -126,7 +133,7 @@ namespace LubricentroVelezV2.Forms
 
                 // Seleccionar "Ninguno" por defecto
                 cmbAceites.SelectedIndex = -1;
-                cmbAditivos.SelectedIndex = -1;
+                cmbAditivos.SelectedIndex = 0;
             }
             catch (Exception ex)
             {
@@ -163,7 +170,7 @@ namespace LubricentroVelezV2.Forms
 
                 // Combos
                 cmbAceites.SelectedValue = _ordenActual.IdAceite.HasValue ? _ordenActual.IdAceite.Value : -1;
-                cmbAditivos.SelectedValue = _ordenActual.IdAditivo.HasValue ? _ordenActual.IdAditivo.Value : -1;
+                cmbAditivos.SelectedValue = _ordenActual.IdAditivo.HasValue ? _ordenActual.IdAditivo.Value : 0;
 
                 // CheckBoxes
                 chkFAceite.Checked = _ordenActual.FiltroAceite ?? false;
@@ -238,7 +245,7 @@ namespace LubricentroVelezV2.Forms
                     txtModelo.Text = lastData.Modelo?.ToString();
 
                     cmbAceites.SelectedValue = lastData.IdAceite.HasValue ? lastData.IdAceite.Value : -1;
-                    cmbAditivos.SelectedValue = lastData.IdAditivo.HasValue ? lastData.IdAditivo.Value : -1;
+                    cmbAditivos.SelectedValue = lastData.IdAditivo.HasValue ? lastData.IdAditivo.Value : 0;
                 }
                 else
                 {
@@ -269,7 +276,14 @@ namespace LubricentroVelezV2.Forms
             txtModelo.Clear();
             // Restablecer combos a nada seleccionado
             cmbAceites.SelectedIndex = -1;
-            cmbAditivos.SelectedIndex = -1;
+            if (cmbAditivos.Items.Count > 0)
+            {
+                cmbAditivos.SelectedIndex = 0;
+            }
+            else
+            {
+                cmbAditivos.SelectedIndex = -1;
+            }
         }
 
         // --- Guardar y Editar ---
@@ -328,13 +342,11 @@ namespace LubricentroVelezV2.Forms
                 {
                     // Guardar nueva orden
                     int newId = await _service.AddOrdenTrabajoAsync(ordenData);
-                    MessageBox.Show($"Orden de Trabajo N° {newId} guardada con éxito.", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
                     // Guardar edición
                     await _service.UpdateOrdenTrabajoAsync(ordenData);
-                    MessageBox.Show($"Orden de Trabajo N° {_ordenActual.IdOt} actualizada con éxito.", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     // Al editar, se vuelve al modo de solo lectura.
                     SetupForm(isNew: false);
@@ -367,20 +379,65 @@ namespace LubricentroVelezV2.Forms
             btnEditar.Enabled = false;
             btnGuardar.Enabled = true;
             btnContactar.Enabled = true;
+            btnEliminar.Enabled = false;
+        }
+
+        private async void btnEliminar_Click(object? sender, EventArgs e)
+        {
+            if (_ordenActual.IdOt == NEW_ORDER_ID) return;
+
+            var confirm = MessageBox.Show(
+                "¿Está seguro que desea eliminar esta Orden de Trabajo? Esta acción no se puede deshacer.",
+                "Confirmar Eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (confirm != DialogResult.Yes) return;
+
+            this.Cursor = Cursors.WaitCursor;
+            try
+            {
+                await _service.DeleteOrdenTrabajoAsync(_ordenActual.IdOt.Value);
+
+                DataChanged?.Invoke(this, EventArgs.Empty);
+                this.Close();
+            }
+            catch (InvalidOperationException ex)
+            {
+                MessageBox.Show(ex.Message, "Error de Base de Datos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al eliminar la Orden: {ex.Message}", "Error de Base de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
         }
 
         private void btnContactar_Click(object? sender, EventArgs e)
         {
             string telefono = txtTelefono.Text.Trim();
 
-            // 1. Limpieza a solo dígitos (Mantenemos la validación estricta)
+            // 1. Limpieza a solo dígitos
             string soloDigitos = System.Text.RegularExpressions.Regex.Replace(telefono, "[^0-9]", "");
 
-            // 2. Validación estricta
-            if (soloDigitos == "0" || soloDigitos.Length < 10 || soloDigitos.Length > 12)
+            // 2. Validación estricta (Mantenemos los filtros de longitud y marcadores de posición)
+
+            // Rango de longitud flexible: de 8 (para fijos muy cortos) hasta 12 dígitos (celular completo sin 9 ni 15)
+            if (soloDigitos.Length < 8 || soloDigitos.Length > 12 || soloDigitos == "0")
             {
                 MessageBox.Show(
-                    "El número es demasiado corto, es '0' o tiene un formato incorrecto para contacto.",
+                    "La longitud del número es incorrecta o es un marcador '0'.",
+                    "Error de Contacto",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                return;
+            }
+            if (soloDigitos.StartsWith("15"))
+            {
+                MessageBox.Show(
+                    "El número de teléfono comienza por '15'(inválido para WhatsApp). " +
+                    "Considere reemplazar el '15' por '351'.",
                     "Error de Contacto",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning
@@ -388,6 +445,7 @@ namespace LubricentroVelezV2.Forms
                 return;
             }
 
+            // Rechazo de patrones de relleno obvios
             if (soloDigitos == "012345678" || System.Text.RegularExpressions.Regex.IsMatch(soloDigitos, @"^(\d)\1+$"))
             {
                 MessageBox.Show(
@@ -399,40 +457,47 @@ namespace LubricentroVelezV2.Forms
                 return;
             }
 
-            if (!soloDigitos.StartsWith("351"))
-            {
-                MessageBox.Show(
-                    "El número no comienza con el código de área esperado (351). Verifique si es válido.",
-                    "Advertencia de Formato",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
-                );
-                return;
-            }
-
-
             // 3. Formateo al estándar Internacional
-            // Código de País para Argentina: 54
+            // Se elimina el filtro de StartsWith("351"). Se asume que el número de 10 a 12 dígitos ya incluye el código de área.
+            // Código de País para Argentina: 54. 
             string numeroInternacional = "54" + soloDigitos;
 
 
             // 4. Construcción del Mensaje Personalizado
             string nombreCliente = txtPropietario.Text.Trim();
             string automovilCliente = txtAutomovil.Text.Trim();
+            string kilometrajeCliente = txtKilometraje.Text.Trim();
+
+            // El Try/Catch es para prevenir un error si Kilometraje es vacío o no numérico,
+            // aunque la validación del formulario debería prevenir esto.
+            int kilometrajeActual = 0;
+            if (int.TryParse(kilometrajeCliente, out int km))
+            {
+                kilometrajeActual = km;
+            }
+            int kilometrajeClienteFinal = kilometrajeActual + 10000;
 
             // El mensaje usa el salto de línea \n
-            string mensajeRaw = $"Hola {nombreCliente}, Lubricentro Velez te recuerda que tenés que cambiarle el aceite a tu {automovilCliente} cada 10.000km";
+            string mensajeRaw = $"Hola {nombreCliente}, Lubricentro Velez te recuerda que tenés que cambiarle el aceite a tu {automovilCliente} a los {kilometrajeClienteFinal} kilómetros.";
 
             // 5. Codificación URL del mensaje
-            // Esto convierte espacios en %20 y saltos de línea (\n) en %0A, algo requerido por la URL de WhatsApp.
             string mensajeCodificado = Uri.EscapeDataString(mensajeRaw);
 
-            // 6. Crear la URL de WhatsApp con el parámetro 'text'
-            string urlWhatsApp = $"https://wa.me/{numeroInternacional}?text={mensajeCodificado}";
-
-            // 7. Ejecutar la acción
+            // 6. Crear la URL de WhatsApp (URL recomendada para abrir en la web)
+            // Usamos el formato https://wa.me/ para ser más estándar. 
+            // Luego ajustaremos la forma de abrir el navegador.
+            string urlWhatsApp = $"https://web.whatsapp.com/send?phone={numeroInternacional}&text={mensajeCodificado}";
+            // 7. Ejecutar la acción y optimizar la apertura del navegador
             try
             {
+                // En lugar de usar Process.Start directamente, que a menudo abre una nueva instancia,
+                // simplemente llamamos al método para abrir la URL. 
+                // El navegador predeterminado (Chrome, Firefox) suele reutilizar la pestaña si ya está abierto, 
+                // pero esto es manejado por el sistema operativo y el navegador, no por C#.
+
+                // La mejor manera de influir en esto es usar el URL wa.me, que es más "amigable" que la url api.whatsapp.com
+                // Y confiar en la configuración del navegador.
+
                 System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(urlWhatsApp) { UseShellExecute = true });
             }
             catch (Exception ex)

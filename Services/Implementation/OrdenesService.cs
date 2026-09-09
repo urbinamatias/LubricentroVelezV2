@@ -102,6 +102,11 @@ namespace LubricentroVelezV2.Services.Implementation
             return _repository.UpdateOrdenTrabajoAsync(ordenDTO);
         }
 
+        public Task DeleteOrdenTrabajoAsync(int idOt)
+        {
+            return _repository.DeleteOrdenTrabajoAsync(idOt);
+        }
+
         // Clases de Ayuda (puedes definirlas fuera si prefieres)
         public class AceiteComboItem
         {
