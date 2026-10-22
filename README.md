@@ -44,12 +44,12 @@ never finished.
 
 ## Context & engineering constraints
 
-The shop's production machine runs **Windows 7**, a detail that only surfaced
-late in development:
+The shop's production machine is a **legacy Windows computer that only supports
+up to .NET 6**, a detail that only surfaced late in development:
 
 - The code was written targeting **.NET 8** to use current tooling and language
   features.
-- Windows 7 supports only up to **.NET 6**, so the project is **pinned back to
+- Since that machine cannot run anything newer than **.NET 6**, the project is **pinned back to
   `net6.0-windows7.0` with EF Core 6 for the delivered Release**.
 - Nothing depends on APIs newer than .NET 6, so moving the target framework
   forward is a one-line change once the shop's environment is upgraded.
@@ -124,6 +124,12 @@ covers (brake fluid, coolant, gearbox, differentials, battery, wipers, and more)
 | UI          | Windows Forms                                          |
 | Data access | Entity Framework Core 6 (SQL Server provider)          |
 | Database    | Microsoft SQL Server (pre-existing schema, database-first) |
+
+---
+
+## License
+
+© 2026 Matías Urbina. All rights reserved. The code is published for reference only, as a portfolio piece: no permission is granted to use, copy, or redistribute it. The "Lubricentro Vélez" name and brand belong to the client, and the database schema is owned by the business. See [LICENSE](LICENSE).
 
 ---
 

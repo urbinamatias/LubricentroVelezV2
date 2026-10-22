@@ -47,12 +47,12 @@ funcionalidades que nunca se habían terminado.
 
 ## Contexto y restricciones de ingeniería
 
-La máquina de producción del negocio corre **Windows 7**, un detalle que recién
-apareció en una etapa avanzada del desarrollo:
+La máquina de producción del negocio es un **equipo Windows legado que solo admite
+hasta .NET 6**, un detalle que recién apareció en una etapa avanzada del desarrollo:
 
 - El código se escribió apuntando a **.NET 8** para aprovechar las herramientas y
   características de lenguaje actuales.
-- Windows 7 solo admite hasta **.NET 6**, por lo que el proyecto se **fija a
+- Como ese equipo no puede ejecutar nada posterior a **.NET 6**, el proyecto se **fija a
   `net6.0-windows7.0` con EF Core 6 para la versión entregada (Release)**.
 - Nada depende de APIs posteriores a .NET 6, así que avanzar el framework de
   destino es un cambio de una sola línea cuando se actualice el entorno del
@@ -131,6 +131,12 @@ refrigerante, caja, diferenciales, batería, limpiaparabrisas, entre otros).
 | UI              | Windows Forms                                             |
 | Acceso a datos  | Entity Framework Core 6 (proveedor para SQL Server)       |
 | Base de datos   | Microsoft SQL Server (esquema preexistente, database-first) |
+
+---
+
+## Licencia
+
+© 2026 Matías Urbina. Todos los derechos reservados. El código se publica solo para consulta, como pieza de portfolio: no se otorga permiso para usarlo, copiarlo ni redistribuirlo. El nombre y la marca "Lubricentro Vélez" pertenecen al cliente, y el esquema de la base de datos es propiedad del negocio. Ver [LICENSE](LICENSE).
 
 ---
 
