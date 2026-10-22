@@ -134,6 +134,12 @@ refrigerante, caja, diferenciales, batería, limpiaparabrisas, entre otros).
 
 ---
 
+## Créditos
+
+Íconos de [Icons8](https://icons8.com).
+
+---
+
 ## Licencia
 
 © 2026 Matías Urbina. Todos los derechos reservados. El código se publica solo para consulta, como pieza de portfolio: no se otorga permiso para usarlo, copiarlo ni redistribuirlo. El nombre y la marca "Lubricentro Vélez" pertenecen al cliente, y el esquema de la base de datos es propiedad del negocio. Ver [LICENSE](LICENSE).

@@ -127,6 +127,12 @@ covers (brake fluid, coolant, gearbox, differentials, battery, wipers, and more)
 
 ---
 
+## Credits
+
+Icons by [Icons8](https://icons8.com).
+
+---
+
 ## License
 
 © 2026 Matías Urbina. All rights reserved. The code is published for reference only, as a portfolio piece: no permission is granted to use, copy, or redistribute it. The "Lubricentro Vélez" name and brand belong to the client, and the database schema is owned by the business. See [LICENSE](LICENSE).
